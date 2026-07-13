@@ -43,7 +43,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <BookOpen className="h-4.5 w-4.5" />
           </span>
           <span className="font-serif text-lg font-semibold tracking-tight text-sidebar-foreground">
-            Shelf
+            Open NCERT
           </span>
         </div>
 
@@ -105,7 +105,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               <BookOpen className="h-4 w-4" />
             </span>
             <span className="font-serif text-base font-semibold tracking-tight">
-              Shelf
+              Open NCERT
             </span>
           </Link>
           <ThemeToggle />

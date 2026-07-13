@@ -11,7 +11,7 @@ const sourceSerif = Source_Serif_4({
 })
 
 export const metadata: Metadata = {
-  title: 'Shelf — NCERT Digital Library',
+  title: 'Open NCERT',
   description:
     'Browse, read, and download NCERT textbooks for Classes I to XII. A modern, fast digital library for students and teachers.',
   generator: 'v0.app',
