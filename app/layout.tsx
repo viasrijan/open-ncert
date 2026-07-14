@@ -4,7 +4,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { AppShell } from '@/components/app-shell'
 import './globals.css'
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
+const geist = Geist({ subsets: ['latin'], variable: '--font-satoshi' })
 
 export const metadata: Metadata = {
   title: 'Open NCERT',
@@ -13,18 +13,9 @@ export const metadata: Metadata = {
   generator: 'v0.app',
   icons: {
     icon: [
-      {
-        url: '/open-ncert/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/open-ncert/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/open-ncert/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/open-ncert/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+      { url: '/open-ncert/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/open-ncert/icon.svg', type: 'image/svg+xml' },
     ],
     apple: '/open-ncert/apple-icon.png',
   },
@@ -33,16 +24,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   colorScheme: 'light dark',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#111111' },
+    { media: '(prefers-color-scheme: light)', color: '#faf8f5' },
+    { media: '(prefers-color-scheme: dark)', color: '#12100e' },
   ],
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"

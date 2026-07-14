@@ -15,13 +15,13 @@ export function BookmarkButton({ bookId }: { bookId: string }) {
       aria-pressed={bookmarked}
       aria-label={bookmarked ? 'Remove bookmark' : 'Bookmark this book'}
       className={cn(
-        'flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-bold transition-colors duration-150',
+        'flex items-center gap-2 rounded-xl px-4 py-3 text-base font-bold transition-all duration-200',
         bookmarked
-          ? 'bg-primary text-primary-foreground'
-          : 'border border-border text-muted-foreground hover:text-foreground',
+          ? 'bg-coral text-white shadow-md'
+          : 'border-2 border-border text-muted-foreground hover:text-foreground hover:border-coral/40',
       )}
     >
-      <Bookmark className={cn('size-4', bookmarked && 'fill-current')} />
+      <Bookmark className={cn('h-[18px] w-[18px]', bookmarked && 'fill-current')} />
       {bookmarked ? 'Saved' : 'Save'}
     </button>
   )
