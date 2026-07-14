@@ -16,7 +16,7 @@ export function ChapterList({ book }: { book: Book }) {
               href={`/read/${chapter.pdfCode}`}
               className="flex min-w-0 flex-1 items-center gap-3 px-4 py-3.5 transition-colors duration-150 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
             >
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-orange/10 text-sm font-bold text-orange">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-blue/10 text-sm font-bold text-blue">
                 {chapter.number}
               </span>
               <span className="min-w-0 truncate text-base font-semibold text-white">

@@ -25,9 +25,9 @@ export default function ClassesPage() {
             <Link
               key={c}
               href={`/classes/${c}`}
-              className="group flex items-center gap-4 rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm p-5 transition-all duration-300 hover:border-orange/30 hover:shadow-xl hover:-translate-y-0.5"
+              className="group flex items-center gap-4 rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm p-5 transition-all duration-300 hover:border-blue/30 hover:shadow-xl hover:-translate-y-0.5"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange transition-colors group-hover:bg-orange group-hover:text-black">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue/10 text-blue transition-colors group-hover:bg-blue group-hover:text-black">
                 <Icon className="size-5" />
               </span>
               <div className="flex flex-col min-w-0 flex-1">
@@ -36,7 +36,7 @@ export default function ClassesPage() {
                   {books.length} {books.length === 1 ? 'book' : 'books'}
                 </p>
               </div>
-              <ArrowRight className="size-5 shrink-0 text-white/20 transition-all duration-300 group-hover:text-orange group-hover:translate-x-1" />
+              <ArrowRight className="size-5 shrink-0 text-white/20 transition-all duration-300 group-hover:text-blue group-hover:translate-x-1" />
             </Link>
           )
         })}

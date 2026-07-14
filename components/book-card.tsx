@@ -45,7 +45,7 @@ export function BookCard({ book, showClass = false }: { book: Book; showClass?: 
         className={cn(
           'absolute right-3 top-3 rounded-full p-2.5 backdrop-blur-md transition-all duration-200',
           bookmarked
-            ? 'bg-orange text-black shadow-lg opacity-100 scale-105'
+            ? 'bg-blue text-black shadow-lg opacity-100 scale-105'
             : 'bg-background/60 text-white/50 opacity-0 hover:text-white focus-visible:opacity-100 group-hover:opacity-100 hover:bg-background/80',
         )}
       >

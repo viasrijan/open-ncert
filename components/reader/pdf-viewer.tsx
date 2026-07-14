@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Minus, Plus, TriangleAlert } from 'lucide-react'
 
 const ZOOM_STEPS = [0.5, 0.75, 1, 1.25, 1.5, 2]
@@ -9,20 +9,8 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
   const [zoomIdx, setZoomIdx] = useState(2)
   const [loading, setLoading] = useState(true)
   const [loadFailed, setLoadFailed] = useState(false)
-  const iframeRef = useRef<HTMLIFrameElement>(null)
 
   const zoom = ZOOM_STEPS[zoomIdx]
-
-  // Google Docs viewer proxies around NCERT's X-Frame-Options
-  const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`
-
-  useEffect(() => {
-    setLoading(true)
-    setLoadFailed(false)
-    // If still loading after 15s, consider it working
-    const t = setTimeout(() => setLoading(false), 15000)
-    return () => clearTimeout(t)
-  }, [url])
 
   return (
     <div className="relative flex min-h-0 flex-1 flex-col bg-sidebar">
@@ -59,18 +47,18 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
             {loading && (
               <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                 <div className="flex flex-col items-center gap-4 rounded-2xl bg-background/90 backdrop-blur-md px-8 py-6 shadow-lg">
-                  <div className="size-8 animate-spin rounded-full border-4 border-white/10 border-t-orange" />
+                  <div className="size-8 animate-spin rounded-full border-4 border-white/10 border-t-blue" />
                   <p className="text-sm font-semibold text-white/60">Loading PDF...</p>
                 </div>
               </div>
             )}
             <iframe
-              ref={iframeRef}
-              src={googleViewerUrl}
+              src={url}
               title={title}
               className="h-full w-full flex-1 border-0"
               onLoad={() => { setLoading(false); setLoadFailed(false) }}
               onError={() => { setLoading(false); setLoadFailed(true) }}
+              sandbox="allow-scripts allow-same-origin"
               style={{
                 minHeight: 'calc(100vh - 7rem)',
                 transform: `scale(${zoom})`,
