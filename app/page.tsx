@@ -15,37 +15,34 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-20 px-6 py-12 md:px-8 md:py-16">
-      {/* Hero — everything centered */}
+      {/* Hero */}
       <section className="flex flex-col items-center text-center gap-6 animate-fade-in-up">
-        {/* Stats pill — ALL CAPS */}
-        <div className="flex items-center gap-3 rounded-full border border-border/40 bg-card/60 px-7 py-3.5 text-base font-bold text-muted-foreground backdrop-blur-sm shadow-sm uppercase tracking-wider">
+        {/* Stats pill */}
+        <div className="flex items-center gap-3 rounded-full border border-border/40 bg-card/60 px-7 py-3.5 text-base font-bold text-white uppercase tracking-wider backdrop-blur-sm shadow-sm">
           <span>{BOOKS.length} TEXTBOOKS</span>
           <span className="text-border/60">·</span>
           <span>{totalChapters.toLocaleString()} CHAPTERS</span>
         </div>
 
-        <h1 className="max-w-3xl font-display text-2xl font-bold leading-relaxed tracking-tight md:text-3xl text-balance">
-          Welcome to{' '}
-          <span className="text-orange">NCERT Hub</span>. An unofficial library for NCERT books.
+        <h1 className="max-w-3xl font-display text-2xl font-bold leading-relaxed tracking-tight md:text-3xl text-balance text-white">
+          Welcome to <span className="text-orange">NCERT Hub</span>.
+          <br />
+          An unofficial library for NCERT books.
         </h1>
 
-        <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg text-pretty">
-          Browse, Read, and Download Official NCERT Textbooks for Classes I to XII.
-        </p>
-
-        {/* Search — center USP */}
+        {/* Search */}
         <div className="flex justify-center w-full mt-4">
           <SearchTrigger />
         </div>
 
         {/* Quick jump */}
         <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
-          <span className="text-sm font-semibold text-muted-foreground/50">Jump to:</span>
+          <span className="text-sm font-semibold text-white/50">Jump to:</span>
           {[6, 8, 10, 12].map((c) => (
             <Link
               key={c}
               href={`/classes/${c}`}
-              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-muted-foreground transition-all duration-200 hover:border-orange/40 hover:text-orange hover:shadow-md hover:scale-105 active:scale-95"
+              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-orange/50 hover:text-orange hover:shadow-md hover:scale-105 active:scale-95"
             >
               Class {toRoman(c)}
             </Link>
@@ -64,12 +61,12 @@ export default function HomePage() {
       {/* Featured books */}
       <section aria-labelledby="featured-heading" className="flex flex-col items-center gap-6">
         <div className="flex flex-col items-center gap-2">
-          <h2 id="featured-heading" className="font-display text-2xl font-bold tracking-tight md:text-3xl text-center">
+          <h2 id="featured-heading" className="font-display text-2xl font-bold tracking-tight md:text-3xl text-center text-white">
             Popular textbooks
           </h2>
           <Link
             href="/classes"
-            className="group flex items-center gap-2 text-base font-semibold text-muted-foreground transition-colors hover:text-foreground"
+            className="group flex items-center gap-2 text-base font-semibold text-white/60 transition-colors hover:text-white"
           >
             View all <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
           </Link>

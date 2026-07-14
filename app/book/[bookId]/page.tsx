@@ -24,7 +24,7 @@ export default async function BookPage({ params }: { params: Promise<{ bookId: s
 
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-8 px-6 py-12 md:px-8 md:py-16">
-      <Link href={`/classes/${book.classNum}`} className="flex items-center gap-1.5 text-[14px] font-bold text-muted-foreground transition-colors hover:text-foreground animate-fade-in">
+      <Link href={`/classes/${book.classNum}`} className="flex items-center gap-1.5 text-[14px] font-bold text-white/50 transition-colors hover:text-white animate-fade-in">
         <ChevronLeft className="size-[18px]" /> Class {toRoman(book.classNum)}
       </Link>
 
@@ -33,16 +33,12 @@ export default async function BookPage({ params }: { params: Promise<{ bookId: s
           <Image src={assetPath(book.cover || '/covers/general.png')} alt="" fill sizes="176px" className="object-cover" />
         </div>
         <div className="flex flex-col items-center gap-2">
-          <p className="flex items-center gap-2 text-[13px] font-bold text-muted-foreground uppercase tracking-wider">
-            <span className="inline-flex items-center justify-center rounded-lg bg-orange/10 px-2 py-1 text-[11px] font-extrabold text-orange">{toRoman(book.classNum)}</span>
-            {book.subject}
-          </p>
-          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl text-balance">{book.title}</h1>
-          <p className="text-[15px] font-semibold text-muted-foreground">{book.chapters.length} {book.chapters.length === 1 ? 'chapter' : 'chapters'}</p>
+          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl text-white text-balance">{book.title}</h1>
+          <p className="text-[15px] font-semibold text-white/50">{book.chapters.length} {book.chapters.length === 1 ? 'chapter' : 'chapters'}</p>
           <div className="flex flex-wrap items-center justify-center gap-3 mt-3">
             <BookmarkButton bookId={book.id} />
             <a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-xl border border-border/30 bg-card/80 px-4 py-3 text-[14px] font-bold text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:text-foreground hover:border-border hover:shadow-sm">
+              className="flex items-center gap-1.5 rounded-xl border border-border/30 bg-card/80 px-4 py-3 text-[14px] font-bold text-white/50 backdrop-blur-sm transition-all duration-200 hover:text-white hover:border-border hover:shadow-sm">
               <ExternalLink className="size-[16px]" /> NCERT official
             </a>
           </div>
