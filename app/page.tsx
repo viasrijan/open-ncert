@@ -23,9 +23,9 @@ export default function HomePage() {
         </div>
 
         <h1 className="max-w-3xl font-display leading-relaxed tracking-tight text-balance text-white">
-          <span className="text-2xl md:text-3xl"><strong className="font-bold">Welcome to NCERT Hub</strong>.</span>
+          <span className="text-3xl md:text-5xl"><strong className="font-bold">Welcome to NCERT Hub</strong>.</span>
           <br />
-          <span className="text-sm md:text-base">An <strong className="font-bold italic underline decoration-gold/40 underline-offset-4 text-gold">unofficial library</strong> for <strong className="font-bold">NCERT books</strong>.</span>
+          <span className="text-lg md:text-2xl">An <strong className="font-bold italic underline decoration-gold/40 underline-offset-4 text-gold">unofficial library</strong> of <strong className="font-bold">NCERT books</strong>.</span>
         </h1>
 
         <div className="flex justify-center w-full mt-4">

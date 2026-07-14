@@ -26,13 +26,19 @@ function ThemeNavItem() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
-  const isDark = mounted ? (theme === 'dark') : true
+
+  const handleClick = () => {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    setTheme(next)
+  }
+
+  const isDark = mounted ? theme === 'dark' : true
   const Icon = isDark ? Sun : Moon
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={handleClick}
       className="nav-btn group flex w-full items-center justify-center gap-3 rounded-3xl py-3 text-[15px] font-semibold transition-colors duration-200 text-white/75"
     >
       <Icon className="h-5 w-5 shrink-0" />
@@ -60,7 +66,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 key={href}
                 href={href}
                 className={cn(
-                  'nav-btn w-full max-w-[150px]',
+                  'nav-btn w-full max-w-[150px] transition-colors duration-200',
                   active && 'bg-gold/10 text-gold',
                 )}
               >
@@ -82,7 +88,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <span className="flex h-10 w-10 items-center justify-center rounded-2xl overflow-hidden shadow-elevated">
               <Image src={assetPath('/apple-icon.png')} alt="NCERT Hub" width={40} height={40} className="h-10 w-10 object-cover" />
             </span>
-            <span className="font-display text-2xl font-extrabold tracking-tight text-white">NCERT Hub</span>
+            <span className="font-display text-2xl font-extrabold tracking-tight text-gold">NCERT Hub</span>
           </Link>
         </header>
 
@@ -100,7 +106,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </footer>
       </div>
 
-      {/* RIGHT SIDEBAR — yellow filled circles */}
+      {/* RIGHT SIDEBAR */}
       <aside className="sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-l border-sidebar-border bg-sidebar/60 backdrop-blur-md lg:flex">
         <div className="flex flex-col items-center gap-5 px-4">
           <p className="text-[22px] font-extrabold tracking-widest text-white uppercase text-center">
@@ -117,7 +123,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   className={cn(
                     'flex items-center justify-center rounded-full text-[15px] font-extrabold transition-colors duration-200 aspect-square shadow-card',
                     active
-                      ? 'bg-white text-sidebar-primary-foreground shadow-elevated'
+                      ? 'bg-gold text-black shadow-elevated'
                       : 'bg-gold/20 text-gold hover:bg-gold/30',
                   )}
                 >
