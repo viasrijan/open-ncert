@@ -25,7 +25,7 @@ export default function HomePage() {
         </div>
 
         <h1 className="max-w-3xl font-display text-2xl font-bold leading-relaxed tracking-tight md:text-3xl text-balance text-white">
-          Welcome to <span className="text-blue">NCERT Hub</span>.
+          Welcome to <span className="text-gold">NCERT Hub</span>.
           <br />
           An unofficial library for NCERT books.
         </h1>
@@ -42,14 +42,14 @@ export default function HomePage() {
             <Link
               key={c}
               href={`/classes/${c}`}
-              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-blue/50 hover:text-blue hover:shadow-md hover:scale-105 active:scale-95"
+              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-gold/50 hover:text-gold hover:shadow-md hover:scale-105 active:scale-95"
             >
               Class {toRoman(c)}
             </Link>
           ))}
           <Link
             href="/classes"
-            className="rounded-full border border-blue/30 bg-blue/5 px-5 py-3 text-sm font-bold text-blue transition-all duration-200 hover:bg-blue/10 hover:scale-105 active:scale-95"
+            className="rounded-full border border-gold/30 bg-gold/5 px-5 py-3 text-sm font-bold text-gold transition-all duration-200 hover:bg-gold/10 hover:scale-105 active:scale-95"
           >
             All classes →
           </Link>

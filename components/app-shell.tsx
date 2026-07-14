@@ -25,17 +25,14 @@ function isActive(pathname: string, href: string) {
 function ThemeNavItem() {
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-
   useEffect(() => setMounted(true), [])
-
   const isDark = mounted && resolvedTheme === 'dark'
   const Icon = isDark ? Sun : Moon
-
   return (
     <button
       type="button"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="group flex w-full items-center justify-center gap-3 rounded-3xl px-3 py-3 text-[15px] font-semibold text-white transition-all duration-200 hover:bg-sidebar-accent/60"
+      className="nav-btn group flex w-full items-center justify-center gap-3 rounded-3xl py-3 text-[15px] font-semibold text-white/75 transition-all duration-200 hover:text-white"
     >
       <Icon className="h-5 w-5 shrink-0" />
       Lights
@@ -52,8 +49,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-svh">
-      {/* LEFT SIDEBAR — inverted gradient */}
-      <aside className="sidebar-left sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-r border-sidebar-border backdrop-blur-md lg:flex">
+      {/* LEFT SIDEBAR */}
+      <aside className="sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-r border-sidebar-border bg-sidebar/60 backdrop-blur-md lg:flex">
         <nav aria-label="Main" className="flex flex-col gap-1.5 px-6">
           {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
             const active = isActive(pathname, href)
@@ -62,9 +59,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 key={href}
                 href={href}
                 className={cn(
-                  'flex items-center justify-center gap-3 rounded-3xl py-3 text-[15px] font-semibold transition-all duration-200',
-                  'text-white/75 hover:bg-white/5 hover:text-white',
-                  active && 'bg-white/5 text-white mx-8',
+                  'nav-btn',
+                  active && 'nav-btn-active',
                 )}
               >
                 <Icon className="h-5 w-5 shrink-0" />
@@ -78,43 +74,33 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       {/* MAIN CONTENT */}
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto h-svh">
-        {/* Header: rotated -90deg gradient */}
-        <header className="header-gradient sticky top-0 z-40 flex justify-center border-b border-border/30 px-4 py-5 backdrop-blur-xl">
+        <header className="sticky top-0 z-40 flex justify-center border-b border-border/30 bg-sidebar/70 px-4 py-5 backdrop-blur-xl">
           <Link href="/" className="flex items-center gap-4 group">
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
-              <Image
-                src={assetPath('/apple-icon.png')}
-                alt="NCERT Hub"
-                width={48}
-                height={48}
-                className="h-12 w-12 object-cover"
-              />
+              <Image src={assetPath('/apple-icon.png')} alt="NCERT Hub" width={48} height={48} className="h-12 w-12 object-cover" />
             </span>
-            <span className="font-display text-3xl font-extrabold tracking-tight text-white">
-              NCERT Hub
-            </span>
+            <span className="font-display text-3xl font-extrabold tracking-tight text-white">NCERT Hub</span>
           </Link>
         </header>
 
         <main className="flex-1 pb-28 lg:pb-0">{children}</main>
 
-        {/* Footer: rotated 90deg gradient */}
-        <footer className="footer-gradient hidden border-t border-border/30 px-8 py-6 lg:flex lg:items-center lg:justify-center">
+        <footer className="hidden border-t border-border/30 px-8 py-6 lg:flex lg:items-center lg:justify-center">
           <p className="text-base font-medium text-white/50 text-center">
             An Unofficial Library of NCERT Books.{' '}
             Visit the official website at{' '}
             <a href="https://ncert.nic.in" target="_blank" rel="noopener noreferrer"
-              className="font-bold text-white underline underline-offset-2 decoration-blue/40 transition-colors hover:text-blue">
+              className="font-bold text-white underline underline-offset-2 decoration-gold/40 transition-colors hover:text-gold">
               © NCERT. ncert.nic.in
             </a>
           </p>
         </footer>
       </div>
 
-      {/* RIGHT SIDEBAR — inverted gradient */}
-      <aside className="sidebar-right sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-l border-sidebar-border backdrop-blur-md lg:flex">
+      {/* RIGHT SIDEBAR — plain white text */}
+      <aside className="sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-l border-sidebar-border bg-sidebar/60 backdrop-blur-md lg:flex">
         <div className="flex flex-col items-center gap-5 px-4">
-          <p className="text-[22px] font-extrabold tracking-widest text-white/50 uppercase text-center">
+          <p className="text-[22px] font-extrabold tracking-widest text-white uppercase text-center">
             Standard
           </p>
           <div className="grid grid-cols-3 gap-3 w-full max-w-[220px]">
@@ -129,7 +115,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     'flex items-center justify-center rounded-full text-[15px] font-extrabold transition-all duration-200 aspect-square',
                     active
                       ? 'bg-white text-sidebar-primary-foreground shadow-lg scale-105'
-                      : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white hover:scale-105',
+                      : 'bg-white/5 text-white hover:bg-white/10 hover:scale-105',
                   )}
                 >
                   {r}

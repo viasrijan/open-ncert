@@ -47,7 +47,7 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
             {loading && (
               <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                 <div className="flex flex-col items-center gap-4 rounded-2xl bg-background/90 backdrop-blur-md px-8 py-6 shadow-lg">
-                  <div className="size-8 animate-spin rounded-full border-4 border-white/10 border-t-blue" />
+                  <div className="size-8 animate-spin rounded-full border-4 border-white/10 border-t-gold" />
                   <p className="text-sm font-semibold text-white/60">Loading PDF...</p>
                 </div>
               </div>
