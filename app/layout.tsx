@@ -8,43 +8,25 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-satoshi' })
 
 export const metadata: Metadata = {
   title: 'NCERT Hub',
-  description:
-    'Browse, read, and download NCERT textbooks for Classes I to XII. A modern, fast digital library for students and teachers.',
+  description: 'Browse, read, and download NCERT textbooks for Classes I to XII.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      { url: '/open-ncert/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/open-ncert/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/open-ncert/icon.svg', type: 'image/svg+xml' },
-    ],
+    icon: '/open-ncert/icon.svg',
     apple: '/open-ncert/apple-icon.png',
   },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#faf8f5' },
-    { media: '(prefers-color-scheme: dark)', color: '#12100e' },
-  ],
+  themeColor: '#0c0c0c',
 }
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`bg-background ${geist.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning className={`bg-background ${geist.variable}`}>
       <body className="font-sans antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <AppShell>{children}</AppShell>
         </ThemeProvider>
       </body>

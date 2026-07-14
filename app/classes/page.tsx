@@ -14,7 +14,7 @@ export default function ClassesPage() {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-12 md:px-8 md:py-16">
       <div className="flex flex-col items-center text-center gap-2 animate-fade-in-up">
-        <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl text-white">All classes</h1>
+        <h1 className="font-display text-6xl font-bold tracking-tight md:text-7xl text-white">All classes</h1>
         <p className="text-lg text-white/60">Pick a class to see every textbook available for it.</p>
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
@@ -25,9 +25,9 @@ export default function ClassesPage() {
             <Link
               key={c}
               href={`/classes/${c}`}
-              className="group flex items-center gap-4 rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm p-5 shadow-card transition-all duration-300 hover:border-gold/30 hover:shadow-elevated hover:-translate-y-0.5"
+              className="group flex items-center gap-4 rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm p-5 shadow-card transition-colors duration-200 hover:border-gold/30 hover:shadow-elevated"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold text-gold bg-transparent transition-colors group-hover:bg-gold group-hover:text-black">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold text-gold bg-transparent transition-colors group-hover:bg-gold/20 group-hover:text-gold">
                 <Icon className="size-5" />
               </span>
               <div className="flex flex-col min-w-0 flex-1">
@@ -36,7 +36,7 @@ export default function ClassesPage() {
                   <span className="text-gold">{books.length}</span> {books.length === 1 ? 'book' : 'books'}
                 </p>
               </div>
-              <ArrowRight className="size-5 shrink-0 text-white/20 transition-all duration-300 group-hover:text-gold group-hover:translate-x-1" />
+              <ArrowRight className="size-5 shrink-0 text-white/20 transition-colors group-hover:text-gold" />
             </Link>
           )
         })}

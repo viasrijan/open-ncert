@@ -25,7 +25,7 @@ export default function HomePage() {
         <h1 className="max-w-3xl font-display text-2xl font-normal leading-relaxed tracking-tight md:text-3xl text-balance text-white">
           Welcome to <strong className="font-bold">NCERT Hub</strong>.
           <br />
-          An <em className="italic underline decoration-gold/40 underline-offset-4 text-gold">unofficial library</em> for <strong className="font-bold">NCERT books</strong>.
+          An <strong className="font-bold italic underline decoration-gold/40 underline-offset-4 text-gold">unofficial library</strong> for <strong className="font-bold">NCERT books</strong>.
         </h1>
 
         <div className="flex justify-center w-full mt-4">
@@ -38,14 +38,14 @@ export default function HomePage() {
             <Link
               key={c}
               href={`/classes/${c}`}
-              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-white transition-all duration-200 hover:border-gold/50 hover:text-gold hover:shadow-card hover:scale-105 active:scale-95"
+              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:border-gold/50 hover:text-gold hover:shadow-card"
             >
               Class {toRoman(c)}
             </Link>
           ))}
           <Link
             href="/classes"
-            className="rounded-full border border-gold/30 bg-gold/5 px-5 py-3 text-sm font-bold text-gold transition-all duration-200 hover:bg-gold/10 hover:scale-105 active:scale-95"
+            className="rounded-full border border-gold/30 bg-gold/5 px-5 py-3 text-sm font-bold text-gold transition-colors duration-200 hover:bg-gold/10"
           >
             All classes →
           </Link>
@@ -63,7 +63,7 @@ export default function HomePage() {
             href="/classes"
             className="group flex items-center gap-2 text-base font-semibold text-white/60 transition-colors hover:text-white"
           >
-            View all <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            View all <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4 stagger-children w-full">
