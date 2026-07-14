@@ -24,7 +24,7 @@ export default function HomePage() {
 
         <h1 className="max-w-3xl font-display leading-relaxed tracking-tight text-balance text-white">
           <span className="text-3xl md:text-5xl"><strong className="font-bold">Welcome to NCERT Hub</strong>.</span>
-          <br />
+          <br /><br />
           <span className="text-lg md:text-2xl">An <strong className="font-bold italic underline decoration-gold/40 underline-offset-4 text-gold">unofficial library</strong> of <strong className="font-bold">NCERT books</strong>.</span>
         </h1>
 
@@ -35,18 +35,13 @@ export default function HomePage() {
         <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
           <span className="text-sm font-semibold text-white/50">Jump to:</span>
           {[6, 8, 10, 12].map((c) => (
-            <Link
-              key={c}
-              href={`/classes/${c}`}
-              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:border-gold/50 hover:text-gold hover:shadow-card"
-            >
+            <Link key={c} href={`/classes/${c}`}
+              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:border-gold/50 hover:text-gold hover:shadow-card">
               Class {toRoman(c)}
             </Link>
           ))}
-          <Link
-            href="/classes"
-            className="rounded-full border border-gold/30 bg-gold/5 px-5 py-3 text-sm font-bold text-gold transition-colors duration-200 hover:bg-gold/10"
-          >
+          <Link href="/classes"
+            className="rounded-full border border-gold/30 bg-gold/5 px-5 py-3 text-sm font-bold text-gold transition-colors duration-200 hover:bg-gold/10">
             All classes →
           </Link>
         </div>
@@ -64,9 +59,7 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5 lg:grid-cols-4 stagger-children w-full">
-          {featured.map((book) => (
-            <BookCard key={book.id} book={book} showClass />
-          ))}
+          {featured.map((book) => (<BookCard key={book.id} book={book} showClass />))}
         </div>
       </section>
     </div>
