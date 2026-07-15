@@ -25,7 +25,7 @@ export const BOOKS: Book[] = [
     "title": "Mridang",
     "classNum": 1,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -153,7 +153,7 @@ export const BOOKS: Book[] = [
     "title": "Mridang",
     "classNum": 2,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -400,7 +400,7 @@ export const BOOKS: Book[] = [
     "title": "Santoor",
     "classNum": 3,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -548,7 +548,7 @@ export const BOOKS: Book[] = [
     "title": "Khel Yoga",
     "classNum": 3,
     "subject": "Physical Education and Well Being",
-    "cover": "/covers/general.png",
+    "cover": "/covers/physical-education-and-well-being.png",
     "chapters": [
       {
         "number": 1,
@@ -592,7 +592,7 @@ export const BOOKS: Book[] = [
     "title": "Our Wondrous World",
     "classNum": 3,
     "subject": "The World Around Us",
-    "cover": "/covers/general.png",
+    "cover": "/covers/the-world-around-us.png",
     "chapters": [
       {
         "number": 1,
@@ -760,7 +760,7 @@ export const BOOKS: Book[] = [
     "title": "Santoor",
     "classNum": 4,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -829,7 +829,7 @@ export const BOOKS: Book[] = [
     "title": "Looking Around(EVS)",
     "classNum": 4,
     "subject": "Environmental Studies",
-    "cover": "/covers/general.png",
+    "cover": "/covers/environmental-studies.png",
     "chapters": [
       {
         "number": 1,
@@ -1052,7 +1052,7 @@ export const BOOKS: Book[] = [
     "title": "Khel Yoga",
     "classNum": 4,
     "subject": "Physical Education and Well Being",
-    "cover": "/covers/general.png",
+    "cover": "/covers/physical-education-and-well-being.png",
     "chapters": [
       {
         "number": 1,
@@ -1076,7 +1076,7 @@ export const BOOKS: Book[] = [
     "title": "Our Wonderous World",
     "classNum": 4,
     "subject": "The World Around Us",
-    "cover": "/covers/general.png",
+    "cover": "/covers/the-world-around-us.png",
     "chapters": [
       {
         "number": 1,
@@ -1239,7 +1239,7 @@ export const BOOKS: Book[] = [
     "title": "Marigold",
     "classNum": 5,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -1298,7 +1298,7 @@ export const BOOKS: Book[] = [
     "title": "Santoor",
     "classNum": 5,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -1357,7 +1357,7 @@ export const BOOKS: Book[] = [
     "title": "Looking Around",
     "classNum": 5,
     "subject": "Environmental Studies",
-    "cover": "/covers/general.png",
+    "cover": "/covers/environmental-studies.png",
     "chapters": [
       {
         "number": 1,
@@ -1639,7 +1639,7 @@ export const BOOKS: Book[] = [
     "title": "Khel Yoga",
     "classNum": 5,
     "subject": "Physical Education and Well Being",
-    "cover": "/covers/general.png",
+    "cover": "/covers/physical-education-and-well-being.png",
     "chapters": [
       {
         "number": 1,
@@ -1663,7 +1663,7 @@ export const BOOKS: Book[] = [
     "title": "Our Wonderous World",
     "classNum": 5,
     "subject": "The World Around Us",
-    "cover": "/covers/general.png",
+    "cover": "/covers/the-world-around-us.png",
     "chapters": [
       {
         "number": 1,
@@ -1841,7 +1841,7 @@ export const BOOKS: Book[] = [
     "title": "Poorvi",
     "classNum": 6,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -1934,7 +1934,7 @@ export const BOOKS: Book[] = [
     "title": "Khel Yatra",
     "classNum": 6,
     "subject": "Physical Education and Well Being",
-    "cover": "/covers/general.png",
+    "cover": "/covers/physical-education-and-well-being.png",
     "chapters": [
       {
         "number": 1,
@@ -2037,7 +2037,7 @@ export const BOOKS: Book[] = [
     "title": "Exploring Society India and Beyond",
     "classNum": 6,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -2116,7 +2116,7 @@ export const BOOKS: Book[] = [
     "title": "Kaushal Bodh",
     "classNum": 6,
     "subject": "Vocational Education",
-    "cover": "/covers/general.png",
+    "cover": "/covers/vocational-education.png",
     "chapters": [
       {
         "number": 1,
@@ -2264,7 +2264,7 @@ export const BOOKS: Book[] = [
     "title": "Poorvi",
     "classNum": 7,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -2391,7 +2391,7 @@ export const BOOKS: Book[] = [
     "title": "Khel Yatra",
     "classNum": 7,
     "subject": "Physical Education and Well Being",
-    "cover": "/covers/general.png",
+    "cover": "/covers/physical-education-and-well-being.png",
     "chapters": [
       {
         "number": 1,
@@ -2499,7 +2499,7 @@ export const BOOKS: Book[] = [
     "title": "Exploring Society India and Beyond Part-I",
     "classNum": 7,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -2568,7 +2568,7 @@ export const BOOKS: Book[] = [
     "title": "Exploring Society India and Beyond Part-II",
     "classNum": 7,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -2617,7 +2617,7 @@ export const BOOKS: Book[] = [
     "title": "Kaushal Bodh",
     "classNum": 7,
     "subject": "Vocational Education",
-    "cover": "/covers/general.png",
+    "cover": "/covers/vocational-education.png",
     "chapters": [
       {
         "number": 1,
@@ -2765,7 +2765,7 @@ export const BOOKS: Book[] = [
     "title": "Honeydew",
     "classNum": 8,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -2814,7 +2814,7 @@ export const BOOKS: Book[] = [
     "title": "It So Happend",
     "classNum": 8,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -2863,7 +2863,7 @@ export const BOOKS: Book[] = [
     "title": "Poorvi",
     "classNum": 8,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -3059,7 +3059,7 @@ export const BOOKS: Book[] = [
     "title": "Khel Yatra",
     "classNum": 8,
     "subject": "Physical Education and Well Being",
-    "cover": "/covers/general.png",
+    "cover": "/covers/physical-education-and-well-being.png",
     "chapters": [
       {
         "number": 1,
@@ -3246,7 +3246,7 @@ export const BOOKS: Book[] = [
     "title": "Exploring Society India and Beyond Part-I",
     "classNum": 8,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -3290,7 +3290,7 @@ export const BOOKS: Book[] = [
     "title": "Our-Pasts-III",
     "classNum": 8,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -3339,7 +3339,7 @@ export const BOOKS: Book[] = [
     "title": "Resource And Development(Geography)",
     "classNum": 8,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -3373,7 +3373,7 @@ export const BOOKS: Book[] = [
     "title": "Social And Political Life",
     "classNum": 8,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -3422,7 +3422,7 @@ export const BOOKS: Book[] = [
     "title": "Kaushal Bodh",
     "classNum": 8,
     "subject": "Vocational Education",
-    "cover": "/covers/general.png",
+    "cover": "/covers/vocational-education.png",
     "chapters": [
       {
         "number": 1,
@@ -3560,7 +3560,7 @@ export const BOOKS: Book[] = [
     "title": "Kaveri",
     "classNum": 9,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -3658,7 +3658,7 @@ export const BOOKS: Book[] = [
     "title": "Khel Praveen",
     "classNum": 9,
     "subject": "Physical Education and Well Being",
-    "cover": "/covers/general.png",
+    "cover": "/covers/physical-education-and-well-being.png",
     "chapters": [
       {
         "number": 1,
@@ -3771,7 +3771,7 @@ export const BOOKS: Book[] = [
     "title": "Kaushal Vikas",
     "classNum": 9,
     "subject": "Skill Education",
-    "cover": "/covers/general.png",
+    "cover": "/covers/skill-education.png",
     "chapters": [
       {
         "number": 1,
@@ -3840,7 +3840,7 @@ export const BOOKS: Book[] = [
     "title": "Understanding Society India and Beyond PART-I",
     "classNum": 9,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -3894,7 +3894,7 @@ export const BOOKS: Book[] = [
     "title": "First Flight",
     "classNum": 10,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -3948,7 +3948,7 @@ export const BOOKS: Book[] = [
     "title": "Foot Prints Without feet Supp. Reader",
     "classNum": 10,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -4002,7 +4002,7 @@ export const BOOKS: Book[] = [
     "title": "Words and Expressions 2",
     "classNum": 10,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -4046,7 +4046,7 @@ export const BOOKS: Book[] = [
     "title": "Health and Physical Education",
     "classNum": 10,
     "subject": "Health and Physical Education",
-    "cover": "/covers/general.png",
+    "cover": "/covers/health-and-physical-education.png",
     "chapters": [
       {
         "number": 1,
@@ -4258,7 +4258,7 @@ export const BOOKS: Book[] = [
     "title": "Contemporary India",
     "classNum": 10,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -4302,7 +4302,7 @@ export const BOOKS: Book[] = [
     "title": "Democratic Politics",
     "classNum": 10,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -4336,7 +4336,7 @@ export const BOOKS: Book[] = [
     "title": "India and the Contemporary World-II",
     "classNum": 10,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -4370,7 +4370,7 @@ export const BOOKS: Book[] = [
     "title": "Understanding Economic Development",
     "classNum": 10,
     "subject": "Social Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/social-science.png",
     "chapters": [
       {
         "number": 1,
@@ -4404,7 +4404,7 @@ export const BOOKS: Book[] = [
     "title": "Accountancy-II",
     "classNum": 11,
     "subject": "Accountancy",
-    "cover": "/covers/economics.png",
+    "cover": "/covers/accountancy.png",
     "chapters": [
       {
         "number": 1,
@@ -4423,7 +4423,7 @@ export const BOOKS: Book[] = [
     "title": "Financial Accounting-I",
     "classNum": 11,
     "subject": "Accountancy",
-    "cover": "/covers/economics.png",
+    "cover": "/covers/accountancy.png",
     "chapters": [
       {
         "number": 1,
@@ -4571,7 +4571,7 @@ export const BOOKS: Book[] = [
     "title": "Biotechnology",
     "classNum": 11,
     "subject": "Biotechnology",
-    "cover": "/covers/general.png",
+    "cover": "/covers/biotechnology.png",
     "chapters": [
       {
         "number": 1,
@@ -4640,7 +4640,7 @@ export const BOOKS: Book[] = [
     "title": "Business Studies",
     "classNum": 11,
     "subject": "Business Studies",
-    "cover": "/covers/economics.png",
+    "cover": "/covers/business-studies.png",
     "chapters": [
       {
         "number": 1,
@@ -4767,7 +4767,7 @@ export const BOOKS: Book[] = [
     "title": "Computer Science",
     "classNum": 11,
     "subject": "Computer Science",
-    "cover": "/covers/general.png",
+    "cover": "/covers/computer-science.png",
     "chapters": [
       {
         "number": 1,
@@ -4929,7 +4929,7 @@ export const BOOKS: Book[] = [
     "title": "Hornbill",
     "classNum": 11,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -4988,7 +4988,7 @@ export const BOOKS: Book[] = [
     "title": "Snapshots Suppl.Reader English",
     "classNum": 11,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -5022,7 +5022,7 @@ export const BOOKS: Book[] = [
     "title": "Woven Words",
     "classNum": 11,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -5131,7 +5131,7 @@ export const BOOKS: Book[] = [
     "title": "An Introduction to Indian Art Part-I",
     "classNum": 11,
     "subject": "Fine Art",
-    "cover": "/covers/arts.png",
+    "cover": "/covers/fine-art.png",
     "chapters": [
       {
         "number": 1,
@@ -5337,7 +5337,7 @@ export const BOOKS: Book[] = [
     "title": "Health and Physical Education",
     "classNum": 11,
     "subject": "Health and Physical Education",
-    "cover": "/covers/general.png",
+    "cover": "/covers/health-and-physical-education.png",
     "chapters": [
       {
         "number": 1,
@@ -5401,7 +5401,7 @@ export const BOOKS: Book[] = [
     "title": "Themes in World History",
     "classNum": 11,
     "subject": "History",
-    "cover": "/covers/social.png",
+    "cover": "/covers/history.png",
     "chapters": [
       {
         "number": 1,
@@ -5445,7 +5445,7 @@ export const BOOKS: Book[] = [
     "title": "Human Ecology and Family Sciences Part I",
     "classNum": 11,
     "subject": "Home Science",
-    "cover": "/covers/general.png",
+    "cover": "/covers/home-science.png",
     "chapters": [
       {
         "number": 1,
@@ -5489,7 +5489,7 @@ export const BOOKS: Book[] = [
     "title": "Human Ecology and Family Sciences Part II",
     "classNum": 11,
     "subject": "Home Science",
-    "cover": "/covers/general.png",
+    "cover": "/covers/home-science.png",
     "chapters": [
       {
         "number": 1,
@@ -5518,7 +5518,7 @@ export const BOOKS: Book[] = [
     "title": "Informatics Practices",
     "classNum": 11,
     "subject": "Informatics Practices",
-    "cover": "/covers/general.png",
+    "cover": "/covers/informatics-practices.png",
     "chapters": [
       {
         "number": 1,
@@ -5567,7 +5567,7 @@ export const BOOKS: Book[] = [
     "title": "Knowledge Traditions Practices of India",
     "classNum": 11,
     "subject": "Knowledge Traditions Practices of India",
-    "cover": "/covers/general.png",
+    "cover": "/covers/knowledge-traditions-practices-of-india.png",
     "chapters": [
       {
         "number": 1,
@@ -5788,7 +5788,7 @@ export const BOOKS: Book[] = [
     "title": "India Constitution at Work",
     "classNum": 11,
     "subject": "Political Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/political-science.png",
     "chapters": [
       {
         "number": 1,
@@ -5847,7 +5847,7 @@ export const BOOKS: Book[] = [
     "title": "Political Theory",
     "classNum": 11,
     "subject": "Political Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/political-science.png",
     "chapters": [
       {
         "number": 1,
@@ -5896,7 +5896,7 @@ export const BOOKS: Book[] = [
     "title": "Introduction to Psychology",
     "classNum": 11,
     "subject": "Psychology",
-    "cover": "/covers/social.png",
+    "cover": "/covers/psychology.png",
     "chapters": [
       {
         "number": 1,
@@ -5945,7 +5945,7 @@ export const BOOKS: Book[] = [
     "title": "Introducing Sociology",
     "classNum": 11,
     "subject": "Sociology",
-    "cover": "/covers/social.png",
+    "cover": "/covers/sociology.png",
     "chapters": [
       {
         "number": 1,
@@ -5979,7 +5979,7 @@ export const BOOKS: Book[] = [
     "title": "Understanding Society",
     "classNum": 11,
     "subject": "Sociology",
-    "cover": "/covers/social.png",
+    "cover": "/covers/sociology.png",
     "chapters": [
       {
         "number": 1,
@@ -6013,7 +6013,7 @@ export const BOOKS: Book[] = [
     "title": "Accountancy Part-II",
     "classNum": 12,
     "subject": "Accountancy",
-    "cover": "/covers/economics.png",
+    "cover": "/covers/accountancy.png",
     "chapters": [
       {
         "number": 1,
@@ -6052,7 +6052,7 @@ export const BOOKS: Book[] = [
     "title": "Accountancy-I",
     "classNum": 12,
     "subject": "Accountancy",
-    "cover": "/covers/economics.png",
+    "cover": "/covers/accountancy.png",
     "chapters": [
       {
         "number": 1,
@@ -6081,7 +6081,7 @@ export const BOOKS: Book[] = [
     "title": "Computerised Accounting System",
     "classNum": 12,
     "subject": "Accountancy",
-    "cover": "/covers/economics.png",
+    "cover": "/covers/accountancy.png",
     "chapters": [
       {
         "number": 1,
@@ -6184,7 +6184,7 @@ export const BOOKS: Book[] = [
     "title": "Biotechnology",
     "classNum": 12,
     "subject": "Biotechnology",
-    "cover": "/covers/general.png",
+    "cover": "/covers/biotechnology.png",
     "chapters": [
       {
         "number": 1,
@@ -6258,7 +6258,7 @@ export const BOOKS: Book[] = [
     "title": "Business Studies-I",
     "classNum": 12,
     "subject": "Business Studies",
-    "cover": "/covers/economics.png",
+    "cover": "/covers/business-studies.png",
     "chapters": [
       {
         "number": 1,
@@ -6307,7 +6307,7 @@ export const BOOKS: Book[] = [
     "title": "Business Studies-II",
     "classNum": 12,
     "subject": "Business Studies",
-    "cover": "/covers/economics.png",
+    "cover": "/covers/business-studies.png",
     "chapters": [
       {
         "number": 1,
@@ -6399,7 +6399,7 @@ export const BOOKS: Book[] = [
     "title": "Computer Science",
     "classNum": 12,
     "subject": "Computer Science",
-    "cover": "/covers/general.png",
+    "cover": "/covers/computer-science.png",
     "chapters": [
       {
         "number": 1,
@@ -6546,7 +6546,7 @@ export const BOOKS: Book[] = [
     "title": "Flamingo",
     "classNum": 12,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -6610,7 +6610,7 @@ export const BOOKS: Book[] = [
     "title": "Kaliedoscope",
     "classNum": 12,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -6689,7 +6689,7 @@ export const BOOKS: Book[] = [
     "title": "Vistas",
     "classNum": 12,
     "subject": "English",
-    "cover": "/covers/language.png",
+    "cover": "/covers/english.png",
     "chapters": [
       {
         "number": 1,
@@ -6728,7 +6728,7 @@ export const BOOKS: Book[] = [
     "title": "An Introduction to Indian Art Part-II",
     "classNum": 12,
     "subject": "Fine Art",
-    "cover": "/covers/arts.png",
+    "cover": "/covers/fine-art.png",
     "chapters": [
       {
         "number": 1,
@@ -6909,7 +6909,7 @@ export const BOOKS: Book[] = [
     "title": "Themes in Indian History-I",
     "classNum": 12,
     "subject": "History",
-    "cover": "/covers/social.png",
+    "cover": "/covers/history.png",
     "chapters": [
       {
         "number": 1,
@@ -6938,7 +6938,7 @@ export const BOOKS: Book[] = [
     "title": "Themes in Indian History-II",
     "classNum": 12,
     "subject": "History",
-    "cover": "/covers/social.png",
+    "cover": "/covers/history.png",
     "chapters": [
       {
         "number": 1,
@@ -6967,7 +6967,7 @@ export const BOOKS: Book[] = [
     "title": "Themes in Indian History-III",
     "classNum": 12,
     "subject": "History",
-    "cover": "/covers/social.png",
+    "cover": "/covers/history.png",
     "chapters": [
       {
         "number": 1,
@@ -6996,7 +6996,7 @@ export const BOOKS: Book[] = [
     "title": "Human Ecology and Family Sciences Part I",
     "classNum": 12,
     "subject": "Home Science",
-    "cover": "/covers/general.png",
+    "cover": "/covers/home-science.png",
     "chapters": [
       {
         "number": 1,
@@ -7040,7 +7040,7 @@ export const BOOKS: Book[] = [
     "title": "Human Ecology and Family Sciences Part II",
     "classNum": 12,
     "subject": "Home Science",
-    "cover": "/covers/general.png",
+    "cover": "/covers/home-science.png",
     "chapters": [
       {
         "number": 1,
@@ -7084,7 +7084,7 @@ export const BOOKS: Book[] = [
     "title": "Manav Paristhitik avam Parivar Vigyan Bhag 1",
     "classNum": 12,
     "subject": "Home Science",
-    "cover": "/covers/general.png",
+    "cover": "/covers/home-science.png",
     "chapters": [
       {
         "number": 1,
@@ -7128,7 +7128,7 @@ export const BOOKS: Book[] = [
     "title": "Manav Paristhitiki avam Parivar Vigyan Bhag 2",
     "classNum": 12,
     "subject": "Home Science",
-    "cover": "/covers/general.png",
+    "cover": "/covers/home-science.png",
     "chapters": [
       {
         "number": 1,
@@ -7172,7 +7172,7 @@ export const BOOKS: Book[] = [
     "title": "Informatics Practices",
     "classNum": 12,
     "subject": "Informatics Practices",
-    "cover": "/covers/general.png",
+    "cover": "/covers/informatics-practices.png",
     "chapters": [
       {
         "number": 1,
@@ -7387,7 +7387,7 @@ export const BOOKS: Book[] = [
     "title": "Contemporary World Politics",
     "classNum": 12,
     "subject": "Political Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/political-science.png",
     "chapters": [
       {
         "number": 1,
@@ -7431,7 +7431,7 @@ export const BOOKS: Book[] = [
     "title": "Politics in India Since Independence",
     "classNum": 12,
     "subject": "Political Science",
-    "cover": "/covers/social.png",
+    "cover": "/covers/political-science.png",
     "chapters": [
       {
         "number": 1,
@@ -7480,7 +7480,7 @@ export const BOOKS: Book[] = [
     "title": "Psychology",
     "classNum": 12,
     "subject": "Psychology",
-    "cover": "/covers/social.png",
+    "cover": "/covers/psychology.png",
     "chapters": [
       {
         "number": 1,
@@ -7524,7 +7524,7 @@ export const BOOKS: Book[] = [
     "title": "Indian Society",
     "classNum": 12,
     "subject": "Sociology",
-    "cover": "/covers/social.png",
+    "cover": "/covers/sociology.png",
     "chapters": [
       {
         "number": 1,
@@ -7568,7 +7568,7 @@ export const BOOKS: Book[] = [
     "title": "Social Change and Development in India",
     "classNum": 12,
     "subject": "Sociology",
-    "cover": "/covers/social.png",
+    "cover": "/covers/sociology.png",
     "chapters": [
       {
         "number": 1,
