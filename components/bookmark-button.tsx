@@ -17,7 +17,7 @@ export function BookmarkButton({ bookId }: { bookId: string }) {
       className={cn(
         'flex items-center gap-2 rounded-xl px-4 py-3 text-base font-bold transition-all duration-200',
         bookmarked
-          ? 'bg-gold text-white shadow-md'
+          ? 'btn-gradient shadow-md'
           : 'border-2 border-border text-muted-foreground hover:text-foreground hover:border-gold/40',
       )}
     >

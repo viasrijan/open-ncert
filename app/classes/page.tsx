@@ -12,8 +12,8 @@ export default function ClassesPage() {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-12 md:px-8 md:py-16">
       <div className="flex flex-col items-center text-center gap-2 animate-fade-in-up">
-        <h1 className="font-display text-6xl font-bold tracking-tight md:text-7xl text-white">All classes</h1>
-        <p className="text-lg text-white/60">Pick a class to see every textbook available for it.</p>
+        <h1 className="font-display text-6xl font-bold tracking-tight md:text-7xl text-foreground">All classes</h1>
+        <p className="text-lg text-muted-foreground">Pick a class to see every textbook available for it.</p>
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
         {CLASSES.map((c) => {
@@ -28,12 +28,12 @@ export default function ClassesPage() {
                 {toRoman(c)}
               </span>
               <div className="flex flex-col min-w-0 flex-1">
-                <h2 className="font-display text-xl font-bold text-white">Class {toRoman(c)}</h2>
-                <p className="text-[14px] font-semibold text-white/50">
+                <h2 className="font-display text-xl font-bold text-foreground">Class {toRoman(c)}</h2>
+                <p className="text-[14px] font-semibold text-muted-foreground">
                   <span className="text-gold">{books.length}</span> {books.length === 1 ? 'book' : 'books'}
                 </p>
               </div>
-              <ArrowRight className="size-5 shrink-0 text-white/20 transition-colors group-hover:text-gold" />
+              <ArrowRight className="size-5 shrink-0 text-muted-foreground/50 transition-colors group-hover:text-gold" />
             </Link>
           )
         })}

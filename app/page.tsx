@@ -16,13 +16,13 @@ export default function HomePage() {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-20 px-6 py-12 md:px-8 md:py-16">
       <section className="flex flex-col items-center text-center gap-6 animate-fade-in-up">
-        <div className="flex items-center gap-3 rounded-full border border-border/40 bg-card/60 px-7 py-3.5 text-base font-bold text-white uppercase tracking-wider backdrop-blur-sm shadow-card">
+        <div className="flex items-center gap-3 rounded-full border border-border/40 bg-card/60 px-7 py-3.5 text-base font-bold text-foreground uppercase tracking-wider backdrop-blur-sm shadow-card">
           <span className="num-gold">{BOOKS.length}</span> TEXTBOOKS
           <span className="text-border/60">·</span>
           <span className="num-gold">{totalChapters.toLocaleString()}</span> CHAPTERS
         </div>
 
-        <h1 className="max-w-3xl font-display leading-relaxed tracking-tight text-balance text-white">
+        <h1 className="max-w-3xl font-display leading-relaxed tracking-tight text-balance text-foreground">
           <span className="text-3xl md:text-5xl"><strong className="font-bold">Welcome to NCERT Hub</strong>.</span>
           <br /><br />
           <span className="text-lg md:text-2xl">An <strong className="font-bold italic text-gold">unofficial library</strong> of <strong className="font-bold">NCERT books</strong>.</span>
@@ -33,15 +33,15 @@ export default function HomePage() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
-          <span className="text-sm font-semibold text-white/50">Jump to:</span>
+          <span className="text-sm font-semibold text-muted-foreground">Jump to:</span>
           {[6, 8, 10, 12].map((c) => (
             <Link key={c} href={`/classes/${c}`}
-              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:border-gold/50 hover:text-gold hover:shadow-card">
+              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-foreground transition-colors duration-200 hover:border-gold/50 hover:text-gold hover:shadow-card">
               Class {toRoman(c)}
             </Link>
           ))}
           <Link href="/classes"
-            className="rounded-full border border-gold/30 bg-gold/5 px-5 py-3 text-sm font-bold text-gold transition-colors duration-200 hover:bg-gold/10">
+            className="rounded-full btn-gradient px-5 py-3 text-sm transition-all duration-200">
             All classes →
           </Link>
         </div>
@@ -51,7 +51,7 @@ export default function HomePage() {
 
       <section aria-labelledby="featured-heading" className="flex flex-col items-center gap-6">
         <div className="flex flex-col items-center gap-2">
-          <h2 id="featured-heading" className="font-display text-2xl font-bold tracking-tight md:text-3xl text-center text-white">
+          <h2 id="featured-heading" className="font-display text-2xl font-bold tracking-tight md:text-3xl text-center text-foreground">
             Popular textbooks
           </h2>
           <Link href="/classes" className="group flex items-center gap-2 text-base font-semibold text-gold transition-colors hover:text-gold/70">

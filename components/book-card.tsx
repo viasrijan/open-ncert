@@ -26,10 +26,10 @@ export function BookCard({ book, showClass = false }: { book: Book; showClass?: 
           <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
         <div className="flex h-[100px] flex-col items-center text-center gap-1.5 p-4">
-          <h3 className="line-clamp-2 max-h-[3.2rem] text-lg font-bold leading-snug text-white text-pretty overflow-hidden">
+          <h3 className="line-clamp-2 max-h-[3.2rem] text-lg font-bold leading-snug text-foreground text-pretty overflow-hidden">
             {book.title}
           </h3>
-          <p className="mt-auto text-[14px] font-semibold text-white/60">
+          <p className="mt-auto text-[14px] font-semibold text-muted-foreground">
             {book.chapters.length} {book.chapters.length === 1 ? 'chapter' : 'chapters'}
           </p>
         </div>
@@ -43,7 +43,7 @@ export function BookCard({ book, showClass = false }: { book: Book; showClass?: 
           'absolute right-3 top-3 rounded-full p-2.5 backdrop-blur-md transition-colors duration-200',
           bookmarked
             ? 'bg-gold text-black shadow-elevated opacity-100'
-            : 'bg-background/60 text-white/50 opacity-0 hover:text-white focus-visible:opacity-100 group-hover:opacity-100 hover:bg-background/80',
+            : 'bg-background/60 text-muted-foreground opacity-0 hover:text-foreground focus-visible:opacity-100 group-hover:opacity-100 hover:bg-background/80',
         )}
       >
         <Bookmark className={cn('h-[18px] w-[18px]', bookmarked && 'fill-current')} />

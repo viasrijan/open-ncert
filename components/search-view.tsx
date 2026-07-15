@@ -72,7 +72,7 @@ export function SearchView() {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-2 md:px-0 md:py-4" onKeyDown={handleKeyDown}>
       <div className="flex items-center gap-3 rounded-full border-2 border-border/30 bg-card/80 px-5 py-4 focus-within:ring-2 focus-within:ring-ring">
-        <Search className="size-5 shrink-0 text-white/40" />
+        <Search className="size-5 shrink-0 text-muted-foreground" />
         <input
           ref={inputRef}
           type="search"
@@ -80,11 +80,11 @@ export function SearchView() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Books, subjects, or chapter names..."
           autoFocus
-          className="min-w-0 flex-1 bg-transparent text-base text-white outline-none placeholder:text-white/40 [&::-webkit-search-cancel-button]:hidden"
+          className="min-w-0 flex-1 bg-transparent text-base text-foreground outline-none placeholder:text-muted-foreground [&::-webkit-search-cancel-button]:hidden"
         />
         {query && (
           <button type="button" onClick={() => { setQuery(''); inputRef.current?.focus() }} aria-label="Clear search"
-            className="text-white/40 hover:text-white transition-colors">
+            className="text-muted-foreground hover:text-foreground transition-colors">
             <X className="size-5" />
           </button>
         )}
@@ -96,8 +96,8 @@ export function SearchView() {
             className={cn(
               'shrink-0 rounded-full px-3.5 py-2 text-sm font-bold transition-colors duration-150',
               classFilter === c
-                ? 'bg-gold text-black'
-                : 'border border-border/30 bg-card/60 text-white/60 hover:text-white',
+                ? 'btn-gradient'
+                : 'border border-border/30 bg-card/60 text-muted-foreground hover:text-foreground',
             )}>
             {c === 0 ? 'All classes' : toRoman(c)}
           </button>
@@ -105,11 +105,11 @@ export function SearchView() {
       </div>
 
       {query.trim().length < 2 ? (
-        <p className="py-8 text-center text-base text-white/50">
+        <p className="py-8 text-center text-base text-muted-foreground">
           Start typing to search {BOOKS.length} textbooks and their chapters.
         </p>
       ) : showEmpty ? (
-        <p className="py-8 text-center text-base text-white/50">
+        <p className="py-8 text-center text-base text-muted-foreground">
           No results for &ldquo;{query}&rdquo;
           {classFilter !== 0 && ` in Class ${toRoman(classFilter)}`}.
         </p>
@@ -124,10 +124,10 @@ export function SearchView() {
                     {(() => { const Ic = getSubjectGradient(hit.book.subject).icon; return <Ic className="size-5 text-white/40 absolute inset-0 m-auto" strokeWidth={1.5} /> })()}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-base font-bold text-white">{hit.book.title}</p>
-                    <p className="truncate text-sm text-white/50">Class {toRoman(hit.book.classNum)} · {hit.book.subject} · {hit.book.chapters.length} chapters</p>
+                    <p className="truncate text-base font-bold text-foreground">{hit.book.title}</p>
+                    <p className="truncate text-sm text-muted-foreground">Class {toRoman(hit.book.classNum)} · {hit.book.subject} · {hit.book.chapters.length} chapters</p>
                   </div>
-                  <BookOpen className="size-5 shrink-0 text-white/30" />
+                  <BookOpen className="size-5 shrink-0 text-muted-foreground/50" />
                 </Link>
               ) : (
                 <Link href={`/read/${hit.chapter.pdfCode}`}
@@ -136,8 +136,8 @@ export function SearchView() {
                     <FileText className="size-5 text-gold" />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-base font-bold text-white">{hit.chapter.title}</p>
-                    <p className="truncate text-sm text-white/50">{hit.book.title} · Class {toRoman(hit.book.classNum)}</p>
+                    <p className="truncate text-base font-bold text-foreground">{hit.chapter.title}</p>
+                    <p className="truncate text-sm text-muted-foreground">{hit.book.title} · Class {toRoman(hit.book.classNum)}</p>
                   </div>
                 </Link>
               )}

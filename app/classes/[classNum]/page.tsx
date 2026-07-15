@@ -26,8 +26,8 @@ export default async function ClassPage({ params }: { params: Promise<{ classNum
         <ChevronLeft className="size-4" /> All classes
       </Link>
       <div className="flex flex-col items-center text-center gap-2 animate-fade-in-up">
-        <h1 className="font-sans text-2xl font-extrabold tracking-tight md:text-3xl text-white text-center">Class {toRoman(c)}</h1>
-        <p className="text-base text-white/50 text-center">
+        <h1 className="font-sans text-2xl font-extrabold tracking-tight md:text-3xl text-foreground text-center">Class {toRoman(c)}</h1>
+        <p className="text-base text-muted-foreground text-center">
           {books.length} {books.length === 1 ? 'textbook' : 'textbooks'}
         </p>
       </div>
