@@ -13,10 +13,10 @@ export function BookCard({ book, showClass = false }: { book: Book; showClass?: 
   const { gradient, icon: Icon } = getSubjectGradient(book.subject)
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm shadow-card transition-colors duration-200 w-[260px] max-w-full">
+    <div className="group relative flex w-[260px] max-w-full flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm shadow-card transition-colors duration-200">
       <Link
         href={`/book/${book.id}`}
-        className="flex flex-1 flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
         <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ background: gradient }}>
           <div className="absolute inset-0 flex items-center justify-center">
@@ -25,11 +25,11 @@ export function BookCard({ book, showClass = false }: { book: Book; showClass?: 
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
-        <div className="flex flex-1 flex-col items-center text-center gap-1.5 p-4">
-          <h3 className="line-clamp-2 text-lg font-bold leading-snug text-white text-pretty">
+        <div className="flex h-[100px] flex-col items-center text-center gap-1.5 p-4">
+          <h3 className="line-clamp-2 max-h-[3.2rem] text-lg font-bold leading-snug text-white text-pretty overflow-hidden">
             {book.title}
           </h3>
-          <p className="mt-auto pt-1 text-[14px] font-semibold text-white/60">
+          <p className="mt-auto text-[14px] font-semibold text-white/60">
             {book.chapters.length} {book.chapters.length === 1 ? 'chapter' : 'chapters'}
           </p>
         </div>
