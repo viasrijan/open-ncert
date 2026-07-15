@@ -32,7 +32,7 @@ function ThemeNavItem() {
   const Icon = isDark ? Sun : Moon
   return (
     <button type="button" onClick={handleClick}
-      className="nav-btn group flex w-full items-center justify-center gap-3 rounded-3xl py-3 text-[15px] font-semibold transition-colors duration-200 text-white/75">
+      className="nav-btn group flex w-full items-center justify-center gap-3 rounded-3xl py-3 text-[15px] font-semibold transition-colors duration-200 text-gold">
       <Icon className="h-5 w-5 shrink-0" /> Lights
     </button>
   )

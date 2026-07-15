@@ -235,12 +235,12 @@
 /* nav-button style */
 .nav-btn {
   @apply flex items-center justify-center gap-3 rounded-3xl py-3 text-[15px] font-semibold transition-all duration-200;
-  color: color-mix(in srgb, var(--foreground) 75%, transparent);
+  color: var(--gold);
 }
 .nav-btn:hover {
-  color: var(--foreground);
+  opacity: 0.8;
 }
 .nav-btn-active {
-  background: color-mix(in srgb, var(--foreground) 5%, transparent);
-  color: var(--foreground);
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  color: var(--gold);
 }
