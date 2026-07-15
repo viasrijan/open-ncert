@@ -7634,6 +7634,14 @@ export function getSubjectsForClass(classNum: number): string[] {
   return [...new Set(getBooksByClass(classNum).map((b) => b.subject))]
 }
 
+export function getAllSubjects(): string[] {
+  return [...new Set(BOOKS.map((b) => b.subject))]
+}
+
+export function getBooksBySubject(subject: string): Book[] {
+  return BOOKS.filter((b) => b.subject === subject)
+}
+
 export function findBookByPdfCode(pdfCode: string): { book: Book; chapter: Chapter } | undefined {
   for (const book of BOOKS) {
     const chapter = book.chapters.find((c) => c.pdfCode === pdfCode)

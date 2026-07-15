@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Bookmark, GraduationCap, Home, Moon, Search, Sun } from 'lucide-react'
+import { Bookmark, GraduationCap, Home, Moon, Search, Sun, BookOpen } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { cn, assetPath } from '@/lib/utils'
@@ -13,6 +13,7 @@ const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'
 const NAV_ITEMS = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/classes', label: 'Classes', icon: GraduationCap },
+  { href: '/subjects', label: 'Subjects', icon: BookOpen },
   { href: '/search', label: 'Search', icon: Search },
   { href: '/bookmarks', label: 'Saved', icon: Bookmark },
 ]
@@ -90,7 +91,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <Link key={r} href={href}
                   className={cn(
                     'flex items-center justify-center rounded-full text-[15px] font-extrabold transition-colors duration-200 aspect-square shadow-card',
-                    active ? 'bg-gold text-black shadow-elevated' : 'bg-gold/20 text-gold hover:bg-gold/30',
+                    active ? 'bg-white text-gold shadow-elevated' : 'bg-gold text-black hover:bg-gold/80',
                   )}>
                   {r}
                 </Link>
