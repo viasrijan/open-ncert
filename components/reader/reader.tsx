@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight, Download, ExternalLink } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import type { Book, Chapter } from '@/lib/catalog'
@@ -38,6 +38,28 @@ export function Reader({ book, chapter }: { book: Book; chapter: Chapter }) {
 
   const pdfUrl = `${NCERT_PDF_BASE}/${chapter.pdfCode}.pdf`
 
+  const [downloading, setDownloading] = useState(false)
+
+  const downloadPdf = useCallback(async () => {
+    setDownloading(true)
+    try {
+      const res = await fetch(pdfUrl)
+      const blob = await res.blob()
+      const objUrl = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = objUrl
+      a.download = `${chapter.pdfCode}.pdf`
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(objUrl)
+    } catch {
+      window.open(pdfUrl, '_blank', 'noopener,noreferrer')
+    } finally {
+      setDownloading(false)
+    }
+  }, [pdfUrl, chapter.pdfCode])
+
   return (
     <div className="flex h-svh flex-col bg-muted">
       {/* Top bar */}
@@ -58,14 +80,15 @@ export function Reader({ book, chapter }: { book: Book; chapter: Chapter }) {
           </p>
         </div>
         <div className="flex items-center gap-1">
-          <a
-            href={pdfUrl}
-            download
+          <button
+            type="button"
+            onClick={downloadPdf}
+            disabled={downloading}
             aria-label="Download chapter PDF"
-            className="flex size-10 items-center justify-center rounded-md text-muted-foreground transition-colors duration-150 hover:bg-secondary hover:text-foreground"
+            className="flex size-10 items-center justify-center rounded-md text-muted-foreground transition-colors duration-150 hover:bg-secondary hover:text-foreground disabled:opacity-50"
           >
             <Download className="size-4" />
-          </a>
+          </button>
           <a
             href={pdfUrl}
             target="_blank"
@@ -79,7 +102,7 @@ export function Reader({ book, chapter }: { book: Book; chapter: Chapter }) {
       </header>
 
       {/* PDF viewer */}
-      <PdfViewer url={pdfUrl} title={chapter.title} />
+      <PdfViewer url={pdfUrl} title={chapter.title} onDownload={downloadPdf} />
 
       {/* Bottom chapter nav */}
       <footer className="flex items-center justify-between gap-2 border-t border-border bg-background/95 px-3 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] backdrop-blur md:px-4">
