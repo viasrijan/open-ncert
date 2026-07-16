@@ -70,7 +70,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <p className="text-[22px] font-extrabold tracking-widest text-sidebar-foreground uppercase text-center">Standard</p>
           <div className="h-4" />
           <div className="grid grid-cols-3 gap-5 w-full max-w-[220px]">
-          <div className="grid grid-cols-3 gap-5 w-full max-w-[220px]">
             {ROMAN.map((r, i) => {
               const href = `/classes/${i + 1}`
               const active = isActive(pathname, href)
