@@ -1,40 +1,76 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
-import { Minus, Plus, ChevronLeft, ChevronRight, TriangleAlert } from 'lucide-react'
+import { ChevronLeft, ChevronRight, TriangleAlert } from 'lucide-react'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
-
-const PROXY_URL = 'https://corsproxy.io/?url='
 
 export function PdfViewer({ url, title }: { url: string; title: string }) {
   const [numPages, setNumPages] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const [loadFailed, setLoadFailed] = useState(false)
-  const [useProxy, setUseProxy] = useState(false)
+  const [pdfData, setPdfData] = useState<string | null>(null)
+  const [proxyIndex, setProxyIndex] = useState(0)
 
-  const displayUrl = useProxy ? `${PROXY_URL}${encodeURIComponent(url)}` : url
+  const PROXIES = [
+    `https://corsproxy.io/?url=`,
+    `https://api.allorigins.win/raw?url=`,
+  ]
+
+  useEffect(() => {
+    if (pdfData || loadFailed) return
+
+    const tryLoad = async () => {
+      // Try direct first
+      try {
+        const res = await fetch(url, { mode: 'cors' })
+        if (res.ok) {
+          const blob = await res.blob()
+          const dataUrl = URL.createObjectURL(blob)
+          setPdfData(dataUrl)
+          return
+        }
+      } catch {}
+
+      // Try proxies
+      for (let i = proxyIndex; i < PROXIES.length; i++) {
+        try {
+          const proxyUrl = `${PROXIES[i]}${encodeURIComponent(url)}`
+          const res = await fetch(proxyUrl)
+          if (res.ok) {
+            const blob = await res.blob()
+            if (blob.type === 'application/pdf' || blob.size > 1000) {
+              const dataUrl = URL.createObjectURL(blob)
+              setPdfData(dataUrl)
+              return
+            }
+          }
+        } catch {
+          continue
+        }
+      }
+
+      setLoadFailed(true)
+      setLoading(false)
+    }
+
+    tryLoad()
+  }, [url, proxyIndex, pdfData, loadFailed])
 
   const onDocumentLoadSuccess = useCallback(({ numPages: n }: { numPages: number }) => {
     setNumPages(n)
     setCurrentPage(1)
     setLoading(false)
-    setLoadFailed(false)
   }, [])
 
   const onDocumentLoadError = useCallback(() => {
-    if (!useProxy) {
-      setUseProxy(true)
-      setLoading(true)
-    } else {
-      setLoading(false)
-      setLoadFailed(true)
-    }
-  }, [useProxy])
+    setLoading(false)
+    setLoadFailed(true)
+  }, [])
 
   const goToPrev = () => setCurrentPage((p) => Math.max(1, p - 1))
   const goToNext = () => setCurrentPage((p) => Math.min(numPages, p + 1))
@@ -72,41 +108,41 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
                 </div>
               </div>
             )}
-            <Document
-              file={displayUrl}
-              onLoadSuccess={onDocumentLoadSuccess}
-              onLoadError={onDocumentLoadError}
-              loading=""
-              noData=""
-            >
-              <Page
-                pageNumber={currentPage}
-                renderTextLayer={false}
-                renderAnnotationLayer={false}
-                className="shadow-lg"
-                width={Math.min(800, typeof window !== 'undefined' ? window.innerWidth - 64 : 800)}
-              />
-            </Document>
+            {pdfData && (
+              <Document
+                file={pdfData}
+                onLoadSuccess={onDocumentLoadSuccess}
+                onLoadError={onDocumentLoadError}
+                loading=""
+                noData=""
+              >
+                <Page
+                  pageNumber={currentPage}
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
+                  className="shadow-lg"
+                  width={Math.min(800, typeof window !== 'undefined' ? window.innerWidth - 64 : 800)}
+                />
+              </Document>
+            )}
           </div>
         )}
       </div>
 
       {!loadFailed && !loading && numPages > 0 && (
-        <>
-          <div className="absolute bottom-4 right-4 flex items-center overflow-hidden rounded-full border border-white/10 bg-background/95 shadow-xl backdrop-blur z-20">
-            <button type="button" onClick={goToPrev} disabled={currentPage <= 1} aria-label="Previous page"
-              className="flex size-10 items-center justify-center text-white transition-colors hover:bg-white/10 disabled:opacity-30">
-              <ChevronLeft className="size-5" />
-            </button>
-            <span className="w-20 text-center text-sm font-bold text-white/60">
-              {currentPage} / {numPages}
-            </span>
-            <button type="button" onClick={goToNext} disabled={currentPage >= numPages} aria-label="Next page"
-              className="flex size-10 items-center justify-center text-white transition-colors hover:bg-white/10 disabled:opacity-30">
-              <ChevronRight className="size-5" />
-            </button>
-          </div>
-        </>
+        <div className="absolute bottom-4 right-4 flex items-center overflow-hidden rounded-full border border-white/10 bg-background/95 shadow-xl backdrop-blur z-20">
+          <button type="button" onClick={goToPrev} disabled={currentPage <= 1} aria-label="Previous page"
+            className="flex size-10 items-center justify-center text-white transition-colors hover:bg-white/10 disabled:opacity-30">
+            <ChevronLeft className="size-5" />
+          </button>
+          <span className="w-20 text-center text-sm font-bold text-white/60">
+            {currentPage} / {numPages}
+          </span>
+          <button type="button" onClick={goToNext} disabled={currentPage >= numPages} aria-label="Next page"
+            className="flex size-10 items-center justify-center text-white transition-colors hover:bg-white/10 disabled:opacity-30">
+            <ChevronRight className="size-5" />
+          </button>
+        </div>
       )}
     </div>
   )
