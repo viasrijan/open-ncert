@@ -132,3 +132,22 @@ export function getSubjectGradient(subject: string): SubjectGradient {
     icon: BookOpen,
   }
 }
+
+const CLASS_GRADIENTS: string[] = [
+  'linear-gradient(135deg, #667eea 0%, #3b1f6e 100%)', // I
+  'linear-gradient(135deg, #f093fb 0%, #6c2eb9 100%)', // II
+  'linear-gradient(135deg, #43e97b 0%, #1a6b3c 100%)', // III
+  'linear-gradient(135deg, #4facfe 0%, #1a4b8c 100%)', // IV
+  'linear-gradient(135deg, #fa709a 0%, #8b1a4a 100%)', // V
+  'linear-gradient(135deg, #fccb90 0%, #8b5e3c 100%)', // VI
+  'linear-gradient(135deg, #a1c4fd 0%, #3b5ea6 100%)', // VII
+  'linear-gradient(135deg, #d4fc79 0%, #4a8b2c 100%)', // VIII
+  'linear-gradient(135deg, #a8edea 0%, #2d6b7a 100%)', // IX
+  'linear-gradient(135deg, #d4af37 0%, #6b4c1a 100%)', // X
+  'linear-gradient(135deg, #fbc2eb 0%, #8b3a6b 100%)', // XI
+  'linear-gradient(135deg, #f6d365 0%, #8b6a1a 100%)', // XII
+]
+
+export function getClassGradient(classNum: number): string {
+  return CLASS_GRADIENTS[(classNum - 1) % 12]
+}

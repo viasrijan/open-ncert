@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getAllSubjects, getBooksBySubject } from '@/lib/catalog'
+import { getSubjectGradient } from '@/lib/subject-gradients'
 
 export const metadata: Metadata = {
   title: 'All Subjects',
@@ -20,13 +21,17 @@ export default function SubjectsPage() {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
         {subjects.map((subject) => {
           const books = getBooksBySubject(subject)
+          const grad = getSubjectGradient(subject).gradient
           return (
             <Link
               key={subject}
               href={`/subjects/${encodeURIComponent(subject)}`}
               className="group flex items-center gap-4 rounded-2xl bg-card/80 backdrop-blur-sm p-5 shadow-card transition-colors duration-200 hover:shadow-elevated"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-white/30 text-white bg-transparent transition-colors group-hover:bg-white/10 group-hover:text-white">
+              <span
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white text-lg font-extrabold shadow-md"
+                style={{ background: grad }}
+              >
                 {subject.charAt(0)}
               </span>
               <div className="flex flex-col min-w-0 flex-1">
