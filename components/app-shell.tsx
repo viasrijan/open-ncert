@@ -45,7 +45,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-svh">
-      <aside className="sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-r border-white/20 bg-gradient-to-b from-[#8b6f47] to-[#6b4f2a] lg:flex">
+      <aside className="sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-r border-sidebar-border bg-sidebar/60 backdrop-blur-md lg:flex">
         <nav aria-label="Main" className="flex flex-col items-center gap-1.5 px-8">
           {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
             const active = isActive(pathname, href)
@@ -80,7 +80,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </footer>
       </div>
 
-      <aside className="sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-l border-white/20 bg-gradient-to-b from-[#8b6f47] to-[#6b4f2a] lg:flex">
+      <aside className="sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-l border-sidebar-border bg-sidebar/60 backdrop-blur-md lg:flex">
         <div className="flex flex-col items-center gap-5 px-4">
           <p className="text-[22px] font-extrabold tracking-widest text-sidebar-foreground uppercase text-center">Standard</p>
           <div className="grid grid-cols-3 gap-3 w-full max-w-[220px]">
