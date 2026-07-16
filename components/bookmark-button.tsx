@@ -18,7 +18,7 @@ export function BookmarkButton({ bookId }: { bookId: string }) {
         'flex items-center gap-2 rounded-xl px-4 py-3 text-base font-bold transition-all duration-200',
         bookmarked
           ? 'btn-gradient shadow-md'
-          : 'border-2 border-border text-muted-foreground hover:text-foreground hover:border-gold/40',
+          : 'bg-card/80 text-muted-foreground hover:text-foreground hover:bg-card',
       )}
     >
       <Bookmark className={cn('h-[18px] w-[18px]', bookmarked && 'fill-current')} />

@@ -86,7 +86,7 @@ export function Reader({ book, chapter }: { book: Book; chapter: Chapter }) {
   return (
     <div className="flex h-svh flex-col bg-muted">
       {/* Top bar */}
-      <header className="flex items-center gap-2 border-b border-border bg-background/95 px-3 py-2 backdrop-blur md:px-4">
+      <header className="flex items-center gap-2 bg-background/95 px-3 py-2 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.4)] backdrop-blur md:px-4">
         <Link
           href={`/book/${book.id}`}
           aria-label={`Back to ${book.title}`}
@@ -128,7 +128,7 @@ export function Reader({ book, chapter }: { book: Book; chapter: Chapter }) {
       <PdfViewer url={pdfUrl} title={chapter.title} onDownload={downloadPdf} />
 
       {/* Bottom chapter nav */}
-      <footer className="flex items-center justify-between gap-2 border-t border-border bg-background/95 px-3 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] backdrop-blur md:px-4">
+      <footer className="flex items-center justify-between gap-2 bg-background/95 px-3 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] shadow-[0_-4px_16px_-4px_rgba(0,0,0,0.4)] backdrop-blur md:px-4">
         <ChapterNavLink chapter={prev} direction="prev" />
         <p className="text-[11px] font-semibold text-muted-foreground">
           {idx + 1} / {book.chapters.length}

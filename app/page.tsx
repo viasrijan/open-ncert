@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-20 px-6 py-12 md:px-8 md:py-16">
       <section className="flex flex-col items-center text-center gap-6 animate-fade-in-up">
-        <div className="flex items-center gap-2 sm:gap-3 rounded-full border border-border/40 bg-card/60 px-4 sm:px-7 py-2.5 sm:py-3.5 text-sm sm:text-base font-bold text-foreground uppercase tracking-wider backdrop-blur-sm shadow-card">
+        <div className="flex items-center gap-2 sm:gap-3 rounded-full bg-card/60 px-4 sm:px-7 py-2.5 sm:py-3.5 text-sm sm:text-base font-bold text-foreground uppercase tracking-wider backdrop-blur-sm shadow-card">
           <span className="num-gold">{BOOKS.length}</span> TEXTBOOKS
           <span className="text-border/60">·</span>
           <span className="num-gold">{totalChapters.toLocaleString()}</span> CHAPTERS
@@ -36,7 +36,7 @@ export default function HomePage() {
           <span className="text-sm font-semibold text-muted-foreground">Jump to:</span>
           {[6, 8, 10, 12].map((c) => (
             <Link key={c} href={`/classes/${c}`}
-              className="rounded-full border border-border/40 bg-card/60 px-5 py-3 text-sm font-bold text-foreground transition-colors duration-200 hover:border-gold/50 hover:text-gold hover:shadow-card">
+              className="rounded-full bg-card/60 px-5 py-3 text-sm font-bold text-foreground transition-colors duration-200 hover:text-gold hover:shadow-card">
               Class {toRoman(c)}
             </Link>
           ))}

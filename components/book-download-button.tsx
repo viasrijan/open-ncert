@@ -54,7 +54,7 @@ export function BookDownloadButton({ pdfCode, label }: { pdfCode: string; label:
       type="button"
       onClick={handleDownload}
       disabled={downloading}
-      className="flex items-center gap-1.5 rounded-xl border border-border/30 bg-card/80 px-4 py-3 text-[14px] font-bold text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:text-foreground hover:border-border hover:shadow-sm disabled:opacity-50"
+      className="flex items-center gap-1.5 rounded-xl bg-card/80 px-4 py-3 text-[14px] font-bold text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:text-foreground hover:shadow-sm disabled:opacity-50"
     >
       <Download className="size-[16px]" /> {downloading ? 'Preparing…' : label}
     </button>

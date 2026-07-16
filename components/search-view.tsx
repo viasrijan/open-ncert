@@ -71,7 +71,7 @@ export function SearchView() {
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-2 md:px-0 md:py-4" onKeyDown={handleKeyDown}>
-      <div className="flex items-center gap-3 rounded-full border-2 border-border/30 bg-card/80 px-5 py-4 focus-within:ring-2 focus-within:ring-ring">
+      <div className="flex items-center gap-3 rounded-full bg-card/80 px-5 py-4 shadow-card focus-within:ring-2 focus-within:ring-ring">
         <Search className="size-5 shrink-0 text-muted-foreground" />
         <input
           ref={inputRef}
@@ -97,7 +97,7 @@ export function SearchView() {
               'shrink-0 rounded-full px-3.5 py-2 text-sm font-bold transition-colors duration-150',
               classFilter === c
                 ? 'btn-gradient'
-                : 'border border-border/30 bg-card/60 text-muted-foreground hover:text-foreground',
+                : 'bg-card/60 text-muted-foreground hover:text-foreground',
             )}>
             {c === 0 ? 'All classes' : toRoman(c)}
           </button>
@@ -114,7 +114,7 @@ export function SearchView() {
           {classFilter !== 0 && ` in Class ${toRoman(classFilter)}`}.
         </p>
       ) : (
-        <ul className="flex flex-col divide-y divide-border overflow-hidden rounded-lg border border-border bg-card/60 backdrop-blur-sm">
+        <ul className="flex flex-col overflow-hidden rounded-lg bg-card/60 backdrop-blur-sm shadow-card">
           {hits.map((hit) => (
             <li key={hit.type === 'book' ? `b-${hit.book.id}` : `c-${hit.chapter.pdfCode}`}>
               {hit.type === 'book' ? (

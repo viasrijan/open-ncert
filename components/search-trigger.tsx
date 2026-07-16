@@ -22,11 +22,11 @@ export function SearchTrigger() {
     <button
       type="button"
       onClick={() => router.push('/search')}
-      className="flex w-full max-w-3xl items-center gap-3 rounded-full border-2 border-border/30 bg-card/80 px-5 py-4 text-left text-base text-muted-foreground backdrop-blur-sm transition-colors duration-200 hover:border-gold/40 hover:shadow-card"
+      className="flex w-full max-w-3xl items-center gap-3 rounded-full bg-card/80 px-5 py-4 text-left text-base text-muted-foreground backdrop-blur-sm shadow-card transition-colors duration-200 hover:shadow-elevated"
     >
       <Search className="size-5 shrink-0" />
       <span className="flex-1 font-semibold">Search books and chapters...</span>
-      <kbd className="hidden rounded-xl border border-border/40 bg-secondary px-3 py-2 font-mono text-sm font-bold text-muted-foreground md:inline-block">
+      <kbd className="hidden rounded-xl bg-secondary px-3 py-2 font-mono text-sm font-bold text-muted-foreground md:inline-block">
         ⌘K
       </kbd>
     </button>

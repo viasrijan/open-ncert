@@ -22,7 +22,7 @@ export default function ClassesPage() {
             <Link
               key={c}
               href={`/classes/${c}`}
-              className="group flex items-center gap-4 rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm p-5 shadow-card transition-colors duration-200 hover:border-gold/30 hover:shadow-elevated"
+              className="group flex items-center gap-4 rounded-2xl bg-card/80 backdrop-blur-sm p-5 shadow-card transition-colors duration-200 hover:shadow-elevated"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold text-gold bg-transparent transition-colors group-hover:bg-gold/20 group-hover:text-gold">
                 {toRoman(c)}

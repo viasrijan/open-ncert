@@ -13,7 +13,7 @@ export function BookCard({ book, showClass = false }: { book: Book; showClass?: 
   const { gradient, icon: Icon } = getSubjectGradient(book.subject)
 
   return (
-    <div className="group relative flex w-[260px] max-w-full flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm shadow-card transition-colors duration-200">
+    <div className="group relative flex w-[260px] max-w-full flex-col overflow-hidden rounded-2xl bg-card/80 backdrop-blur-sm shadow-card transition-colors duration-200">
       <Link
         href={`/book/${book.id}`}
         className="flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"

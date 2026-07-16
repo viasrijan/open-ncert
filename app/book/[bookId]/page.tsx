@@ -29,7 +29,7 @@ export default async function BookPage({ params }: { params: Promise<{ bookId: s
       </Link>
 
       <div className="flex flex-col items-center text-center gap-5 animate-fade-in-up">
-        <div className="relative aspect-[3/4] w-36 shrink-0 overflow-hidden rounded-2xl border border-border/30 shadow-lg md:w-44" style={{ background: getSubjectGradient(book.subject).gradient }}>
+        <div className="relative aspect-[3/4] w-36 shrink-0 overflow-hidden rounded-2xl shadow-lg md:w-44" style={{ background: getSubjectGradient(book.subject).gradient }}>
           {(() => { const Ic = getSubjectGradient(book.subject).icon; return <Ic className="size-12 text-white/30 absolute inset-0 m-auto" strokeWidth={1.5} /> })()}
         </div>
         <div className="flex flex-col items-center gap-2">
@@ -39,7 +39,7 @@ export default async function BookPage({ params }: { params: Promise<{ bookId: s
             <BookmarkButton bookId={book.id} />
             <BookDownloadButton pdfCode={book.chapters[0].pdfCode} label="Download" />
             <a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-xl border border-border/30 bg-card/80 px-4 py-3 text-[14px] font-bold text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:text-foreground hover:border-border hover:shadow-sm">
+              className="flex items-center gap-1.5 rounded-xl bg-card/80 px-4 py-3 text-[14px] font-bold text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:text-foreground hover:shadow-sm">
               <ExternalLink className="size-[16px]" /> NCERT official
             </a>
           </div>
