@@ -179,6 +179,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    padding-bottom: 0.15em;
+    margin-bottom: -0.15em;
   }
   .bg-gold { background: var(--gold-gradient); }
   .nav-btn { color: var(--gold); }
