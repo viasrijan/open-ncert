@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-20 px-6 py-12 md:px-8 md:py-16">
       <section className="flex flex-col items-center text-center gap-6 animate-fade-in-up">
-        <div className="flex items-center gap-3 rounded-full border border-border/40 bg-card/60 px-7 py-3.5 text-base font-bold text-foreground uppercase tracking-wider backdrop-blur-sm shadow-card">
+        <div className="flex items-center gap-2 sm:gap-3 rounded-full border border-border/40 bg-card/60 px-4 sm:px-7 py-2.5 sm:py-3.5 text-sm sm:text-base font-bold text-foreground uppercase tracking-wider backdrop-blur-sm shadow-card">
           <span className="num-gold">{BOOKS.length}</span> TEXTBOOKS
           <span className="text-border/60">·</span>
           <span className="num-gold">{totalChapters.toLocaleString()}</span> CHAPTERS

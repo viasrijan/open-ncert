@@ -1,26 +1,48 @@
 'use client'
 
-import { useState } from 'react'
-import { Minus, Plus, TriangleAlert } from 'lucide-react'
+import { useState, useCallback } from 'react'
+import { Document, Page, pdfjs } from 'react-pdf'
+import 'react-pdf/dist/Page/AnnotationLayer.css'
+import 'react-pdf/dist/Page/TextLayer.css'
+import { Minus, Plus, ChevronLeft, ChevronRight, TriangleAlert } from 'lucide-react'
 
-const ZOOM_STEPS = [0.5, 0.75, 1, 1.25, 1.5, 2]
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
+
+const PROXY_URL = 'https://corsproxy.io/?url='
 
 export function PdfViewer({ url, title }: { url: string; title: string }) {
-  const [zoomIdx, setZoomIdx] = useState(2)
+  const [numPages, setNumPages] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const [loadFailed, setLoadFailed] = useState(false)
-  const [useFallback, setUseFallback] = useState(false)
+  const [useProxy, setUseProxy] = useState(false)
 
-  const zoom = ZOOM_STEPS[zoomIdx]
+  const displayUrl = useProxy ? `${PROXY_URL}${encodeURIComponent(url)}` : url
 
-  // Google Docs viewer as primary — NCERT blocks iframes
-  const googleUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`
-  const displayUrl = useFallback ? url : googleUrl
+  const onDocumentLoadSuccess = useCallback(({ numPages: n }: { numPages: number }) => {
+    setNumPages(n)
+    setCurrentPage(1)
+    setLoading(false)
+    setLoadFailed(false)
+  }, [])
+
+  const onDocumentLoadError = useCallback(() => {
+    if (!useProxy) {
+      setUseProxy(true)
+      setLoading(true)
+    } else {
+      setLoading(false)
+      setLoadFailed(true)
+    }
+  }, [useProxy])
+
+  const goToPrev = () => setCurrentPage((p) => Math.max(1, p - 1))
+  const goToNext = () => setCurrentPage((p) => Math.min(numPages, p + 1))
 
   return (
     <div className="relative flex min-h-0 flex-1 flex-col bg-sidebar">
-      <div className="flex-1 overflow-auto">
-        {loadFailed && useFallback ? (
+      <div className="flex-1 overflow-auto flex items-start justify-center p-4">
+        {loadFailed ? (
           <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center py-16">
             <div className="flex size-16 items-center justify-center rounded-2xl bg-muted">
               <TriangleAlert className="size-8 text-white/40" />
@@ -41,49 +63,50 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
             </div>
           </div>
         ) : (
-          <div className="relative flex flex-1 flex-col">
+          <div className="relative flex flex-col items-center">
             {loading && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+              <div className="absolute inset-0 z-10 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-4 rounded-2xl bg-background/90 backdrop-blur-md px-8 py-6 shadow-lg">
                   <div className="size-8 animate-spin rounded-full border-4 border-white/10 border-t-gold" />
                   <p className="text-sm font-semibold text-white/60">Loading PDF...</p>
                 </div>
               </div>
             )}
-            <iframe
-              src={displayUrl}
-              title={title}
-              className="h-full w-full flex-1 border-0"
-              onLoad={() => { setLoading(false); setLoadFailed(false) }}
-              onError={() => {
-                if (!useFallback) {
-                  setUseFallback(true)
-                  setLoading(true)
-                } else {
-                  setLoading(false)
-                  setLoadFailed(true)
-                }
-              }}
-              style={{
-                minHeight: 'calc(100vh - 7rem)',
-                transform: `scale(${zoom})`,
-                transformOrigin: 'top center',
-                width: `${100 / zoom}%`,
-                height: `${100 / zoom}%`,
-              }}
-            />
+            <Document
+              file={displayUrl}
+              onLoadSuccess={onDocumentLoadSuccess}
+              onLoadError={onDocumentLoadError}
+              loading=""
+              noData=""
+            >
+              <Page
+                pageNumber={currentPage}
+                renderTextLayer={false}
+                renderAnnotationLayer={false}
+                className="shadow-lg"
+                width={Math.min(800, typeof window !== 'undefined' ? window.innerWidth - 64 : 800)}
+              />
+            </Document>
           </div>
         )}
       </div>
 
-      {!loadFailed && !loading && (
-        <div className="absolute bottom-4 right-4 flex items-center overflow-hidden rounded-full border border-white/10 bg-background/95 shadow-xl backdrop-blur z-20">
-          <button type="button" onClick={() => setZoomIdx(i => Math.max(0, i - 1))} disabled={zoomIdx === 0} aria-label="Zoom out"
-            className="flex size-12 items-center justify-center text-white transition-colors hover:bg-white/10 disabled:opacity-30"><Minus className="size-5"/></button>
-          <span className="w-14 text-center font-mono text-sm font-bold text-white/60">{Math.round(zoom * 100)}%</span>
-          <button type="button" onClick={() => setZoomIdx(i => Math.min(ZOOM_STEPS.length - 1, i + 1))} disabled={zoomIdx === ZOOM_STEPS.length - 1} aria-label="Zoom in"
-            className="flex size-12 items-center justify-center text-white transition-colors hover:bg-white/10 disabled:opacity-30"><Plus className="size-5"/></button>
-        </div>
+      {!loadFailed && !loading && numPages > 0 && (
+        <>
+          <div className="absolute bottom-4 right-4 flex items-center overflow-hidden rounded-full border border-white/10 bg-background/95 shadow-xl backdrop-blur z-20">
+            <button type="button" onClick={goToPrev} disabled={currentPage <= 1} aria-label="Previous page"
+              className="flex size-10 items-center justify-center text-white transition-colors hover:bg-white/10 disabled:opacity-30">
+              <ChevronLeft className="size-5" />
+            </button>
+            <span className="w-20 text-center text-sm font-bold text-white/60">
+              {currentPage} / {numPages}
+            </span>
+            <button type="button" onClick={goToNext} disabled={currentPage >= numPages} aria-label="Next page"
+              className="flex size-10 items-center justify-center text-white transition-colors hover:bg-white/10 disabled:opacity-30">
+              <ChevronRight className="size-5" />
+            </button>
+          </div>
+        </>
       )}
     </div>
   )

@@ -3,9 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Bookmark, GraduationCap, Home, Moon, Search, Sun, BookOpen } from 'lucide-react'
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { Bookmark, GraduationCap, Home, Search, BookOpen } from 'lucide-react'
 import { cn, assetPath } from '@/lib/utils'
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII']
@@ -21,21 +19,6 @@ const NAV_ITEMS = [
 function isActive(pathname: string, href: string) {
   if (href === '/') return pathname === '/'
   return pathname === href || pathname.startsWith(href + '/')
-}
-
-function ThemeNavItem() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
-  const handleClick = () => setTheme(theme === 'dark' ? 'light' : 'dark')
-  const isDark = mounted ? theme === 'dark' : true
-  const Icon = isDark ? Sun : Moon
-  return (
-    <button type="button" onClick={handleClick}
-      className="nav-btn group flex w-full items-center justify-center gap-3 rounded-3xl py-3 text-[15px] font-semibold transition-colors duration-200 text-gold">
-      <Icon className="h-5 w-5 shrink-0" /> Lights
-    </button>
-  )
 }
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -56,20 +39,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </Link>
             )
           })}
-          <div className="w-full max-w-[150px]"><ThemeNavItem /></div>
         </nav>
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto h-svh">
-        <header className="sticky top-0 z-50 flex justify-center border-b border-border/30 bg-background/90 backdrop-blur-xl px-4 py-4">
-          <Link href="/" className="flex items-center gap-3 group">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full overflow-hidden shadow-elevated">
-              <Image src={assetPath('/logo.svg')} alt="NCERT Hub" width={32} height={32} className="h-8 w-8" />
+        <header className="sticky top-0 z-50 flex justify-center border-b border-border/30 bg-sidebar/80 backdrop-blur-xl px-4 py-5">
+          <Link href="/" className="flex items-center gap-4 group">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full overflow-hidden shadow-elevated">
+              <Image src={assetPath('/logo.svg')} alt="NCERT Hub" width={40} height={40} className="h-10 w-10" />
             </span>
-            <span className="font-display text-xl font-extrabold tracking-tight text-gold">NCERT Hub</span>
+            <span className="font-display text-2xl font-extrabold tracking-tight text-gold">NCERT Hub</span>
           </Link>
         </header>
-        <main className="flex-1 pb-28 lg:pb-0">{children}</main>
+        <main className="flex-1 pb-28 lg:pb-0 mt-4">{children}</main>
         <footer className="hidden border-t border-border/30 px-8 py-6 lg:flex lg:items-center lg:justify-center">
           <p className="text-base font-medium text-foreground text-center">
             An Unofficial Library of NCERT Books.{' '}Visit the official website at{' '}

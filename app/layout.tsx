@@ -24,7 +24,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`bg-background ${geist.variable}`}>
+    <html lang="en" className={`dark bg-background ${geist.variable}`}>
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark" disableTransitionOnChange>
           <AppShell>{children}</AppShell>
