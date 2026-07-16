@@ -148,6 +148,12 @@ const CLASS_GRADIENTS: string[] = [
   'linear-gradient(135deg, #f6d365 0%, #8b6a1a 100%)', // XII
 ]
 
+const CLASS_ICON_GRADIENT = 'linear-gradient(135deg, #e5e5e5 0%, #4a4a4a 100%)'
+
 export function getClassGradient(classNum: number): string {
   return CLASS_GRADIENTS[(classNum - 1) % 12]
+}
+
+export function getClassIconGradient(): string {
+  return CLASS_ICON_GRADIENT
 }

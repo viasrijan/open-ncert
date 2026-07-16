@@ -40,7 +40,7 @@ export default function SubjectsPage() {
                   <span className="text-[#69a667]">{books.length}</span> <span className="text-[#69a667]">{books.length === 1 ? 'book' : 'books'}</span>
                 </p>
               </div>
-              <ArrowRight className="size-5 shrink-0 text-muted-foreground/50 transition-colors group-hover:text-gold" />
+              <ArrowRight className="size-5 shrink-0 text-muted-foreground/40 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-gold" />
             </Link>
           )
         })}
