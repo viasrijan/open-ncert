@@ -25,8 +25,8 @@ export function BookCard({ book, showClass = false }: { book: Book; showClass?: 
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
-        <div className="flex h-[100px] flex-col items-center text-center gap-1.5 p-4">
-          <h3 className="line-clamp-2 max-h-[3.2rem] text-lg font-bold leading-snug text-foreground text-pretty overflow-hidden">
+        <div className="flex h-[120px] flex-col items-center text-center gap-1.5 p-4">
+          <h3 className="line-clamp-2 text-lg font-bold leading-snug text-foreground text-pretty">
             {book.title}
           </h3>
           <p className="mt-auto text-[14px] font-semibold text-muted-foreground">
