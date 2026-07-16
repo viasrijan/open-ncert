@@ -220,16 +220,16 @@
 /* Sidebar gradients: darker toward the inner edge (left sidebar darker on right,
    right sidebar darker on left) */
 .sidebar-left {
-  background: linear-gradient(to right, rgba(18,18,18,0.55), rgba(0,0,0,0.85));
-}
-.sidebar-right {
   background: linear-gradient(to left, rgba(18,18,18,0.55), rgba(0,0,0,0.85));
 }
+.sidebar-right {
+  background: linear-gradient(to right, rgba(18,18,18,0.55), rgba(0,0,0,0.85));
+}
 .light .sidebar-left {
-  background: linear-gradient(to right, rgba(245,242,237,0.7), rgba(208,202,194,0.95));
+  background: linear-gradient(to left, rgba(245,242,237,0.7), rgba(208,202,194,0.95));
 }
 .light .sidebar-right {
-  background: linear-gradient(to left, rgba(245,242,237,0.7), rgba(208,202,194,0.95));
+  background: linear-gradient(to right, rgba(245,242,237,0.7), rgba(208,202,194,0.95));
 }
 
 @keyframes fade-in-up {
