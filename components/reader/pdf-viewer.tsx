@@ -8,7 +8,15 @@ import { ChevronLeft, ChevronRight, TriangleAlert } from 'lucide-react'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 
-// Cloudflare Worker CORS proxy (deployed at ncert-pdf-proxy.srijan-pratap1998.workers.dev)
+// Self-hosted mirrors on GitHub (served via jsDelivr CDN with CORS), split across
+// 4 repos because GitHub rejects large single-repo pushes. Fallback to the
+// Cloudflare Worker proxy that fetches live from ncert.nic.in.
+const JD_BASES = [
+  'https://cdn.jsdelivr.net/gh/viasrijan/ncert-pdfs-1@main',
+  'https://cdn.jsdelivr.net/gh/viasrijan/ncert-pdfs-2@main',
+  'https://cdn.jsdelivr.net/gh/viasrijan/ncert-pdfs-3@main',
+  'https://cdn.jsdelivr.net/gh/viasrijan/ncert-pdfs-4@main',
+]
 const PROXY_BASE = 'https://ncert-pdf-proxy.srijan-pratap1998.workers.dev'
 
 export function PdfViewer({ url, title }: { url: string; title: string }) {
@@ -18,24 +26,45 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
   const [loadFailed, setLoadFailed] = useState(false)
   const [pdfUrl, setPdfUrl] = useState<string | null>(null)
 
-  // Extract the PDF filename from the NCERT URL and build the proxied URL.
-  const proxiedUrl = (() => {
+  // Extract the PDF filename from the NCERT URL.
+  const file = (() => {
     try {
-      const u = new URL(url)
-      const file = u.pathname.split('/').pop() || ''
-      return `${PROXY_BASE}/pdf/${file}`
+      return new URL(url).pathname.split('/').pop() || ''
     } catch {
-      return url
+      return ''
     }
   })()
 
+  // Try each jsDelivr mirror; fall back to the Cloudflare Worker proxy.
   useEffect(() => {
-    setPdfUrl(proxiedUrl)
+    let cancelled = false
     setLoading(true)
     setLoadFailed(false)
     setNumPages(0)
     setCurrentPage(1)
-  }, [proxiedUrl])
+
+    const resolve = async () => {
+      for (const base of JD_BASES) {
+        const candidate = `${base}/${file}`
+        try {
+          const res = await fetch(candidate, { method: 'HEAD' })
+          if (res.ok) {
+            if (!cancelled) setPdfUrl(candidate)
+            return
+          }
+        } catch {
+          // try next mirror
+        }
+      }
+      // Fallback: Cloudflare Worker proxy (live fetch from ncert.nic.in)
+      if (!cancelled) setPdfUrl(`${PROXY_BASE}/pdf/${file}`)
+    }
+
+    if (file) resolve()
+    return () => {
+      cancelled = true
+    }
+  }, [file, url])
 
   const onDocumentLoadSuccess = useCallback(({ numPages: n }: { numPages: number }) => {
     setNumPages(n)
@@ -44,9 +73,21 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
   }, [])
 
   const onDocumentLoadError = useCallback(() => {
-    setLoading(false)
-    setLoadFailed(true)
-  }, [])
+    // If a jsDelivr mirror failed (e.g. file still uploading), fall back to proxy.
+    setPdfUrl((prev) => {
+      if (prev && prev.includes('jsdelivr') && file) {
+        const proxy = `${PROXY_BASE}/pdf/${file}`
+        if (prev !== proxy) {
+          setLoading(true)
+          setLoadFailed(false)
+          return proxy
+        }
+      }
+      setLoading(false)
+      setLoadFailed(true)
+      return prev
+    })
+  }, [file])
 
   const goToPrev = () => setCurrentPage((p) => Math.max(1, p - 1))
   const goToNext = () => setCurrentPage((p) => Math.min(numPages, p + 1))
@@ -64,11 +105,11 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
               The NCERT server may be unreachable. Try the options below.
             </p>
             <div className="flex gap-3 mt-2">
-              <a href={url} target="_blank" rel="noopener noreferrer"
+              <a href={pdfUrl ?? url} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-base font-bold text-black transition-colors hover:opacity-90">
                 Open in new tab
               </a>
-              <a href={url} download
+              <a href={pdfUrl ?? url} download
                 className="inline-flex items-center gap-2 rounded-xl border-2 border-white/20 px-6 py-3 text-base font-bold text-white transition-colors hover:bg-white/10">
                 Download PDF
               </a>
