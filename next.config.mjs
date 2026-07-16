@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  basePath: '/ncert-hub',
   typescript: {
     ignoreBuildErrors: true,
   },
