@@ -8,58 +8,35 @@ import { ChevronLeft, ChevronRight, TriangleAlert } from 'lucide-react'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 
+// Cloudflare Worker CORS proxy (deployed separately).
+// Replace with your deployed worker URL after `wrangler deploy`.
+const PROXY_BASE = process.env.NEXT_PUBLIC_PDF_PROXY || 'https://ncert-pdf-proxy.workers.dev'
+
 export function PdfViewer({ url, title }: { url: string; title: string }) {
   const [numPages, setNumPages] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const [loadFailed, setLoadFailed] = useState(false)
-  const [pdfData, setPdfData] = useState<string | null>(null)
-  const [proxyIndex, setProxyIndex] = useState(0)
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null)
 
-  const PROXIES = [
-    `https://corsproxy.io/?url=`,
-    `https://api.allorigins.win/raw?url=`,
-  ]
+  // Extract the PDF filename from the NCERT URL and build the proxied URL.
+  const proxiedUrl = (() => {
+    try {
+      const u = new URL(url)
+      const file = u.pathname.split('/').pop() || ''
+      return `${PROXY_BASE}/pdf/${file}`
+    } catch {
+      return url
+    }
+  })()
 
   useEffect(() => {
-    if (pdfData || loadFailed) return
-
-    const tryLoad = async () => {
-      // Try direct first
-      try {
-        const res = await fetch(url, { mode: 'cors' })
-        if (res.ok) {
-          const blob = await res.blob()
-          const dataUrl = URL.createObjectURL(blob)
-          setPdfData(dataUrl)
-          return
-        }
-      } catch {}
-
-      // Try proxies
-      for (let i = proxyIndex; i < PROXIES.length; i++) {
-        try {
-          const proxyUrl = `${PROXIES[i]}${encodeURIComponent(url)}`
-          const res = await fetch(proxyUrl)
-          if (res.ok) {
-            const blob = await res.blob()
-            if (blob.type === 'application/pdf' || blob.size > 1000) {
-              const dataUrl = URL.createObjectURL(blob)
-              setPdfData(dataUrl)
-              return
-            }
-          }
-        } catch {
-          continue
-        }
-      }
-
-      setLoadFailed(true)
-      setLoading(false)
-    }
-
-    tryLoad()
-  }, [url, proxyIndex, pdfData, loadFailed])
+    setPdfUrl(proxiedUrl)
+    setLoading(true)
+    setLoadFailed(false)
+    setNumPages(0)
+    setCurrentPage(1)
+  }, [proxiedUrl])
 
   const onDocumentLoadSuccess = useCallback(({ numPages: n }: { numPages: number }) => {
     setNumPages(n)
@@ -108,9 +85,9 @@ export function PdfViewer({ url, title }: { url: string; title: string }) {
                 </div>
               </div>
             )}
-            {pdfData && (
+            {pdfUrl && (
               <Document
-                file={pdfData}
+                file={pdfUrl}
                 onLoadSuccess={onDocumentLoadSuccess}
                 onLoadError={onDocumentLoadError}
                 loading=""

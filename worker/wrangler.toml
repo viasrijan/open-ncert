@@ -1,0 +1,9 @@
+name = "ncert-pdf-proxy"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# To use a custom domain instead of the default *.workers.dev,
+# uncomment and set your zone + route:
+# [env.production]
+# route = "pdf.yourdomain.com/*"
+# zone_name = "yourdomain.com"
