@@ -10,6 +10,14 @@ import { NCERT_PDF_BASE, toRoman } from '@/lib/catalog'
 import { useRecents } from '@/lib/library-store'
 import { cn } from '@/lib/utils'
 
+const JD_BASES = [
+  'https://cdn.jsdelivr.net/gh/viasrijan/ncert-pdfs-1@main',
+  'https://cdn.jsdelivr.net/gh/viasrijan/ncert-pdfs-2@main',
+  'https://cdn.jsdelivr.net/gh/viasrijan/ncert-pdfs-3@main',
+  'https://cdn.jsdelivr.net/gh/viasrijan/ncert-pdfs-4@main',
+]
+const PROXY_BASE = 'https://ncert-pdf-proxy.srijan-pratap1998.workers.dev'
+
 const PdfViewer = dynamic(
   () => import('@/components/reader/pdf-viewer').then((mod) => mod.PdfViewer),
   {
@@ -40,15 +48,30 @@ export function Reader({ book, chapter }: { book: Book; chapter: Chapter }) {
 
   const [downloading, setDownloading] = useState(false)
 
+  const resolveUrl = useCallback(async (file: string): Promise<string> => {
+    for (const base of JD_BASES) {
+      const candidate = `${base}/${file}`
+      try {
+        const res = await fetch(candidate, { method: 'HEAD' })
+        if (res.ok) return candidate
+      } catch {
+        // try next mirror
+      }
+    }
+    return `${PROXY_BASE}/pdf/${file}`
+  }, [])
+
   const downloadPdf = useCallback(async () => {
+    const file = `${chapter.pdfCode}.pdf`
     setDownloading(true)
     try {
-      const res = await fetch(pdfUrl)
+      const url = await resolveUrl(file)
+      const res = await fetch(url)
       const blob = await res.blob()
       const objUrl = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = objUrl
-      a.download = `${chapter.pdfCode}.pdf`
+      a.download = file
       document.body.appendChild(a)
       a.click()
       a.remove()
@@ -58,7 +81,7 @@ export function Reader({ book, chapter }: { book: Book; chapter: Chapter }) {
     } finally {
       setDownloading(false)
     }
-  }, [pdfUrl, chapter.pdfCode])
+  }, [resolveUrl, pdfUrl, chapter.pdfCode])
 
   return (
     <div className="flex h-svh flex-col bg-muted">

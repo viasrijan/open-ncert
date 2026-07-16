@@ -5,6 +5,7 @@ import { ChevronLeft, ExternalLink } from 'lucide-react'
 import { BOOKS, getBook, toRoman } from '@/lib/catalog'
 import { ChapterList } from '@/components/chapter-list'
 import { BookmarkButton } from '@/components/bookmark-button'
+import { BookDownloadButton } from '@/components/book-download-button'
 import { getSubjectGradient } from '@/lib/subject-gradients'
 
 export function generateStaticParams() { return BOOKS.map((b) => ({ bookId: b.id })) }
@@ -36,6 +37,7 @@ export default async function BookPage({ params }: { params: Promise<{ bookId: s
           <p className="text-[15px] font-semibold text-muted-foreground">{book.chapters.length} {book.chapters.length === 1 ? 'chapter' : 'chapters'}</p>
           <div className="flex flex-wrap items-center justify-center gap-3 mt-3">
             <BookmarkButton bookId={book.id} />
+            <BookDownloadButton pdfCode={book.chapters[0].pdfCode} label="Download" />
             <a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-1.5 rounded-xl border border-border/30 bg-card/80 px-4 py-3 text-[14px] font-bold text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:text-foreground hover:border-border hover:shadow-sm">
               <ExternalLink className="size-[16px]" /> NCERT official
