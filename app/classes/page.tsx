@@ -24,13 +24,13 @@ export default function ClassesPage() {
               href={`/classes/${c}`}
               className="group flex items-center gap-4 rounded-2xl bg-card/80 backdrop-blur-sm p-5 shadow-card transition-colors duration-200 hover:shadow-elevated"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold text-gold bg-transparent transition-colors group-hover:bg-gold/20 group-hover:text-gold">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-white/30 text-white bg-transparent transition-colors group-hover:bg-white/10 group-hover:text-white">
                 {toRoman(c)}
               </span>
               <div className="flex flex-col min-w-0 flex-1">
                 <h2 className="font-display text-xl font-bold text-foreground">Class {toRoman(c)}</h2>
                 <p className="text-[14px] font-semibold text-muted-foreground">
-                  <span className="text-gold">{books.length}</span> {books.length === 1 ? 'book' : 'books'}
+                  <span className="text-gold">{books.length}</span> <span className="text-gold">{books.length === 1 ? 'book' : 'books'}</span>
                 </p>
               </div>
               <ArrowRight className="size-5 shrink-0 text-muted-foreground/50 transition-colors group-hover:text-gold" />
