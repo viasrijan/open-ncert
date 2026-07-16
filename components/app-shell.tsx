@@ -34,8 +34,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             const active = isActive(pathname, href)
             return (
               <Link key={href} href={href}
-                className={cn('nav-btn w-full max-w-[150px] flex-row-reverse text-right uppercase transition-colors duration-200', active && 'nav-btn-active text-white')}>
-                <Icon className="h-5 w-5 shrink-0" /> {label}
+                className={cn('nav-btn w-full max-w-[150px] text-right uppercase transition-colors duration-200', active && 'nav-btn-active text-white')}>
+                <span className="flex-1">{label}</span>
+                <Icon className="h-5 w-5 shrink-0 self-center" />
               </Link>
             )
           })}
