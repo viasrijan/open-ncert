@@ -22,7 +22,7 @@ export default function HomePage() {
           <span className="num-gold">{totalChapters.toLocaleString()}</span> CHAPTERS
         </div>
 
-        <h1 className="max-w-3xl font-display leading-relaxed tracking-tight text-balance text-foreground">
+        <h1 className="mt-4 max-w-3xl font-display leading-relaxed tracking-tight text-balance text-foreground">
           <span className="text-lg md:text-2xl">An <strong className="font-bold text-gold">unofficial library</strong> of <strong className="font-bold">NCERT books</strong>.</span>
         </h1>
 
