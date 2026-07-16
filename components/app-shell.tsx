@@ -66,7 +66,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <span className="flex h-8 w-8 items-center justify-center rounded-full overflow-hidden shadow-elevated">
               <Image src={assetPath('/logo.svg')} alt="NCERT Hub" width={32} height={32} className="h-8 w-8" />
             </span>
-            <span className="font-display text-xl font-extrabold tracking-tight text-gold">NCERT Hub</span>
+            <span className="font-display text-xl font-extrabold tracking-tight text-sidebar-foreground">NCERT Hub</span>
           </Link>
         </header>
         <main className="flex-1 pb-28 lg:pb-0">{children}</main>
@@ -82,7 +82,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       <aside className="sticky top-0 hidden h-svh w-[275px] shrink-0 flex-col justify-center border-l border-sidebar-border bg-sidebar/60 backdrop-blur-md lg:flex">
         <div className="flex flex-col items-center gap-5 px-4">
-          <p className="text-[22px] font-extrabold tracking-widest text-foreground uppercase text-center">Standard</p>
+          <p className="text-[22px] font-extrabold tracking-widest text-sidebar-foreground uppercase text-center">Standard</p>
           <div className="grid grid-cols-3 gap-3 w-full max-w-[220px]">
             {ROMAN.map((r, i) => {
               const href = `/classes/${i + 1}`
@@ -91,7 +91,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <Link key={r} href={href}
                   className={cn(
                     'flex items-center justify-center rounded-full text-[15px] font-extrabold transition-colors duration-200 aspect-square shadow-card',
-                    active ? 'bg-foreground text-background shadow-elevated' : 'btn-gradient hover:opacity-90',
+                    active ? 'bg-white text-[#8b6f47] shadow-elevated' : 'btn-gradient hover:opacity-90',
                   )}>
                   {r}
                 </Link>
@@ -106,7 +106,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           const active = isActive(pathname, href)
           return (
             <Link key={href} href={href}
-              className={cn('flex flex-1 flex-col items-center gap-1.5 pt-3.5 pb-[calc(0.75rem+env(safe-area-inset-bottom))] text-[12px] font-bold tracking-tight', active ? 'text-foreground' : 'text-muted-foreground')}>
+              className={cn('flex flex-1 flex-col items-center gap-1.5 pt-3.5 pb-[calc(0.75rem+env(safe-area-inset-bottom))] text-[12px] font-bold tracking-tight', active ? 'text-sidebar-foreground' : 'text-sidebar-foreground/60')}>
               <Icon className="h-6 w-6" /> {label}
             </Link>
           )
