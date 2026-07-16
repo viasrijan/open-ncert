@@ -45,15 +45,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto h-svh">
         <header className="sticky top-0 z-50 flex justify-center bg-sidebar/80 backdrop-blur-xl px-4 py-5 shadow-[0_6px_20px_-4px_rgba(0,0,0,0.45)]">
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full overflow-hidden shadow-elevated">
-              <Image src={assetPath('/logo.png')} alt="NCERT Hub" width={20} height={20} className="h-5 w-5" />
+            <span className="flex h-[30px] w-[30px] items-center justify-center rounded-full overflow-hidden shadow-elevated">
+              <Image src={assetPath('/logo.png')} alt="NCERT Hub" width={30} height={30} className="h-[30px] w-[30px]" />
             </span>
-            <span className="font-display text-[20px] leading-none font-extrabold tracking-tight text-gold">NCERT Hub</span>
+            <span className="font-display text-[30px] leading-none font-extrabold tracking-tight text-gold">NCERT Hub</span>
           </Link>
         </header>
         <main className="flex-1 pb-28 lg:pb-0 mt-4">{children}</main>
         <footer className="hidden px-8 py-6 lg:flex lg:items-center lg:justify-center">
-          <p className="text-base font-medium text-foreground text-center">
+          <p className="text-xs font-medium text-foreground text-center">
             An Unofficial Library of NCERT Books.{' '}Visit the official website at{' '}
             <a href="https://ncert.nic.in" target="_blank" rel="noopener noreferrer" className="font-bold text-gold no-underline hover:text-foreground">
               © NCERT. ncert.nic.in
