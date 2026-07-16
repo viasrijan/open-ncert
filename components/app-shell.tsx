@@ -75,7 +75,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               return (
                 <Link key={r} href={href}
                   className={cn(
-                    'flex items-center justify-center rounded-full text-[15px] font-extrabold transition-colors duration-200 aspect-square shadow-card',
+                    'flex items-center justify-center rounded-full text-[17px] font-extrabold transition-colors duration-200 aspect-square shadow-card scale-110 origin-center',
                     active ? 'bg-white text-[#40663f] shadow-elevated' : 'btn-gradient hover:opacity-90',
                   )}>
                   {r}
