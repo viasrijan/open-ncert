@@ -3564,42 +3564,42 @@ export const BOOKS: Book[] = [
     "chapters": [
       {
         "number": 1,
-        "title": "The Fun They Had",
+        "title": "How I Taught My Grandmother to Read",
         "pdfCode": "iebe101"
       },
       {
         "number": 2,
-        "title": "The Sound of Music",
+        "title": "The Pot Maker",
         "pdfCode": "iebe102"
       },
       {
         "number": 3,
-        "title": "The Little Girl",
+        "title": "Winds of Change",
         "pdfCode": "iebe103"
       },
       {
         "number": 4,
-        "title": "A Truly Beautiful Mind",
+        "title": "Vitamin-M",
         "pdfCode": "iebe104"
       },
       {
         "number": 5,
-        "title": "The Snake and the Mirror",
+        "title": "The World of Limitless Possibilities",
         "pdfCode": "iebe105"
       },
       {
         "number": 6,
-        "title": "My Childhood",
+        "title": "Twin Melodies",
         "pdfCode": "iebe106"
       },
       {
         "number": 7,
-        "title": "Reach for the Top",
+        "title": "Carrier of Words",
         "pdfCode": "iebe107"
       },
       {
         "number": 8,
-        "title": "Kathmandu",
+        "title": "Follow That Dream",
         "pdfCode": "iebe108"
       }
     ]
