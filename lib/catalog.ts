@@ -3613,42 +3613,42 @@ export const BOOKS: Book[] = [
     "chapters": [
       {
         "number": 1,
-        "title": "Number Systems",
+        "title": "Orienting Yourself: The Use of Coordinates",
         "pdfCode": "iemh101"
       },
       {
         "number": 2,
-        "title": "Polynomials",
+        "title": "Introduction to Linear Polynomials",
         "pdfCode": "iemh102"
       },
       {
         "number": 3,
-        "title": "Coordinate Geometry",
+        "title": "The World of Numbers",
         "pdfCode": "iemh103"
       },
       {
         "number": 4,
-        "title": "Linear Equations in Two Variables",
+        "title": "Exploring Algebraic Identities",
         "pdfCode": "iemh104"
       },
       {
         "number": 5,
-        "title": "Introduction to Euclid's Geometry",
+        "title": "I'm Up and Down, and Round and Round",
         "pdfCode": "iemh105"
       },
       {
         "number": 6,
-        "title": "Lines and Angles",
+        "title": "Measuring Space: Perimeter and Area",
         "pdfCode": "iemh106"
       },
       {
         "number": 7,
-        "title": "Triangles",
+        "title": "The Mathematics of Maybe: Introduction to Probabilty",
         "pdfCode": "iemh107"
       },
       {
         "number": 8,
-        "title": "Quadrilaterals",
+        "title": "Predicting What Comes Next: Exploring Sequences and Progressions",
         "pdfCode": "iemh108"
       }
     ]
@@ -3662,32 +3662,32 @@ export const BOOKS: Book[] = [
     "chapters": [
       {
         "number": 1,
-        "title": "Physical Education and Well-being",
+        "title": "Evolution of Physical Education and Well-being",
         "pdfCode": "iehp101"
       },
       {
         "number": 2,
-        "title": "History and Culture of Physical Education in India",
+        "title": "Science and Sports",
         "pdfCode": "iehp102"
       },
       {
         "number": 3,
-        "title": "Careers in Physical Education",
+        "title": "Olympism",
         "pdfCode": "iehp103"
       },
       {
         "number": 4,
-        "title": "Fitness and its Components",
+        "title": "Sports for All",
         "pdfCode": "iehp104"
       },
       {
         "number": 5,
-        "title": "Understanding Our Body",
+        "title": "Sports",
         "pdfCode": "iehp105"
       },
       {
         "number": 6,
-        "title": "Cardiorespiratory System",
+        "title": "Yoga for Holistic Health and Personal Excellence",
         "pdfCode": "iehp106"
       }
     ]
@@ -3775,62 +3775,62 @@ export const BOOKS: Book[] = [
     "chapters": [
       {
         "number": 1,
-        "title": "Introduction to Skill Education",
+        "title": "Introduction to Agricultural Practices",
         "pdfCode": "iekv101"
       },
       {
         "number": 2,
-        "title": "Self-management Skills",
+        "title": "Rooftop Gardening",
         "pdfCode": "iekv102"
       },
       {
         "number": 3,
-        "title": " ICT Skills",
+        "title": "Precision Farming",
         "pdfCode": "iekv103"
       },
       {
         "number": 4,
-        "title": "Entrepreneurial Skills",
+        "title": "Additional Vocations",
         "pdfCode": "iekv104"
       },
       {
         "number": 5,
-        "title": "Green Skills",
+        "title": "Shaping Materials",
         "pdfCode": "iekv105"
       },
       {
         "number": 6,
-        "title": "Communication Skills",
+        "title": "Construction",
         "pdfCode": "iekv106"
       },
       {
         "number": 7,
-        "title": "Self-awareness and Employability",
+        "title": "Apparel",
         "pdfCode": "iekv107"
       },
       {
         "number": 8,
-        "title": "Life Skills and Values",
+        "title": "Additional Vocations",
         "pdfCode": "iekv108"
       },
       {
         "number": 9,
-        "title": "Workplace Readiness",
+        "title": "Personal and Lifestyle Services",
         "pdfCode": "iekv109"
       },
       {
         "number": 10,
-        "title": "Financial Literacy",
+        "title": "Healthcare",
         "pdfCode": "iekv110"
       },
       {
         "number": 11,
-        "title": "Digital Literacy",
+        "title": "Tourism",
         "pdfCode": "iekv111"
       },
       {
         "number": 12,
-        "title": "Career Planning",
+        "title": "Additional Vocations",
         "pdfCode": "iekv112"
       }
     ]
